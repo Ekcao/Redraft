@@ -19,18 +19,22 @@ class App extends Component {
         League.getChampions()
             .then(response => {
                 const champions = response.data.data;
+                // Add an 'available'' field to keep track of pick/ban status.
+                Object.keys(champions).forEach(key => {
+                    champions[key]['available'] = true;
+                });
                 this.setState({ champions });
             });
     }
 
     render() {
-        League.getChampions();
+        const { champions } = this.state;
         return (
             <div className="app">
                 <Header />    
                 <div className="app-content">
                     <TeamPanel side="blue"/>
-                    <Champions />
+                    <Champions champions={champions} />
                     <TeamPanel side="red"/>
                 </div>
             </div>
