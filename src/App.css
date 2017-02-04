@@ -1,0 +1,17 @@
+html, body, #root {
+    height: 100%;
+}
+
+.app {
+    display: flex;
+    text-align: center;
+    height: 100%;
+    flex-direction: column;
+}
+
+.app-content {
+    display: flex;
+    flex-direction: row;
+    flex: 6;
+    width: 100%;
+}

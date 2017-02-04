@@ -1,0 +1,6 @@
+.team-bans {
+    flex: 1;
+    margin-top: 16px;
+    border: 1px;
+    border-style: dashed;
+}

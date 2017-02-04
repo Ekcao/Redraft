@@ -1,0 +1,15 @@
+.team-panel {
+    flex-grow: 1;
+    flex-shrink: 0;
+    padding: 16px;
+    border: 1px;
+    border-style: solid;
+    display: flex;
+    flex-direction: column;
+}
+
+.blue {
+}
+
+.red {
+}
