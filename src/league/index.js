@@ -14,6 +14,10 @@ const League = {
             .then(version => {
                 return axios.get(`/cdn/${version}/data/en_US/champion.json`);
             }).catch(error => console.log(error));
+    },
+
+    getPortraitURL: function (champ) {
+        return `https://ddragon.leagueoflegends.com/cdn/${champ.version}/img/champion/${champ.image.full}`;
     }
 }
 

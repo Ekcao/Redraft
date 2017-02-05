@@ -11,7 +11,7 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            champions: ''
+            champions: {}
         };
     }
 
@@ -22,9 +22,14 @@ class App extends Component {
                 // Add an 'available'' field to keep track of pick/ban status.
                 Object.keys(champions).forEach(key => {
                     champions[key]['available'] = true;
+                    champions[key]['portraitURL'] = League.getPortraitURL(champions[key]);
                 });
                 this.setState({ champions });
             });
+    }
+
+    handleChampionClick = (e) => {
+        console.log(e.target);
     }
 
     render() {
@@ -34,7 +39,7 @@ class App extends Component {
                 <Header />    
                 <div className="app-content">
                     <TeamPanel side="blue"/>
-                    <Champions champions={champions} />
+                    <Champions champions={champions} onChampionClick={this.handleChampionClick}/>
                     <TeamPanel side="red"/>
                 </div>
             </div>
