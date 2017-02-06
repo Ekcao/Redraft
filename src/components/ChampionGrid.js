@@ -10,7 +10,7 @@ const ChampionGrid = ({ champions, onChampionClick }) => {
                 key={key}    
                 className="champion-portrait"
                 alt={champions[key].id}
-                onClick={onChampionClick.bind(this, key)}/>
+                onClick={onChampionClick.bind(this, champions[key])}/>
         );
     });
     return (

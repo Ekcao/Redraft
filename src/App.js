@@ -38,7 +38,11 @@ class App extends Component {
     }
 
     handleChampionClick = (e) => {
-        console.log(e);
+        const team = this.state.redTeam;
+        team.picks = team.picks.concat(e);
+        this.setState({
+            redTeam: team
+        });
     }
 
     render() {

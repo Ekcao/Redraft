@@ -10,8 +10,8 @@ import Team from '../team';
 const TeamPanel = ({ team }) => {
     return (
         <div className={`team-panel ${team.side}`}>
-            <TeamPicks />
-            <TeamBans />
+            <TeamPicks picks={team.picks}/>
+            <TeamBans bans={team.bans}/>
         </div>
     );
 }
