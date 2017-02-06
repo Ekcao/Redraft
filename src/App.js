@@ -7,12 +7,20 @@ import TeamPanel from './components/TeamPanel';
 import './App.css';
 
 import League from './league';
+import Team from './team';
 
 class App extends Component {
+    side = {
+        BLUE: 'blue',
+        RED: 'red'
+    }
+
     constructor(props) {
         super(props);
         this.state = {
-            champions: {}
+            champions: {},
+            blueTeam: new Team('CLG', this.side.BLUE),
+            redTeam: new Team('TSM', this.side.RED)
         };
     }
 
@@ -34,17 +42,17 @@ class App extends Component {
     }
 
     render() {
-        const { champions } = this.state;
+        const { champions, blueTeam, redTeam } = this.state;
         return (
             <div className="app">
                 <Header />    
                 <div className="app-content">
-                    <TeamPanel side="blue"/>
+                    <TeamPanel team={blueTeam}/>
                     <div className="center-content">
                         <ChampionGrid champions={champions} onChampionClick={this.handleChampionClick} />
                         <Controls />
                     </div>
-                    <TeamPanel side="red"/>
+                    <TeamPanel team={redTeam}/>
                 </div>
             </div>
         );

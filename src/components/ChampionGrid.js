@@ -23,7 +23,8 @@ const ChampionGrid = ({ champions, onChampionClick }) => {
 }
 
 ChampionGrid.propTypes = {
-    champions: React.PropTypes.object.isRequired
+    champions: React.PropTypes.object.isRequired,
+    onChampionClick: React.PropTypes.func
 }
 
 export default ChampionGrid;
