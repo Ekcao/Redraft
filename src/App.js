@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
 import Header from './components/Header';
-import Champions from './components/Champions';
+import ChampionGrid from './components/ChampionGrid';
+import Controls from './components/Controls';
 import TeamPanel from './components/TeamPanel';
 import './App.css';
 
@@ -19,8 +20,8 @@ class App extends Component {
         League.getChampions()
             .then(response => {
                 const champions = response.data.data;
-                // Add an 'available'' field to keep track of pick/ban status.
                 Object.keys(champions).forEach(key => {
+                    // Add an 'available'' field to keep track of pick/ban status.
                     champions[key]['available'] = true;
                     champions[key]['portraitURL'] = League.getPortraitURL(champions[key]);
                 });
@@ -29,7 +30,7 @@ class App extends Component {
     }
 
     handleChampionClick = (e) => {
-        console.log(e.target);
+        console.log(e);
     }
 
     render() {
@@ -39,7 +40,10 @@ class App extends Component {
                 <Header />    
                 <div className="app-content">
                     <TeamPanel side="blue"/>
-                    <Champions champions={champions} onChampionClick={this.handleChampionClick}/>
+                    <div className="center-content">
+                        <ChampionGrid champions={champions} onChampionClick={this.handleChampionClick} />
+                        <Controls />
+                    </div>
                     <TeamPanel side="red"/>
                 </div>
             </div>

@@ -1,19 +1,23 @@
 import React from 'react';
 
-import ChampionPortrait from './ChampionPortrait';
-
 import './ChampionGrid.css';
 
 const ChampionGrid = ({ champions, onChampionClick }) => {
     const listChampions = [];
     Object.keys(champions).forEach(key => {
         listChampions.push(
-            <ChampionPortrait key={key} champion={champions[key]} onChampionClick={onChampionClick} />
+            <img src={champions[key].portraitURL}
+                key={key}    
+                className="champion-portrait"
+                alt={champions[key].id}
+                onClick={onChampionClick.bind(this, key)}/>
         );
     });
     return (
         <div className="champion-grid">
-            {listChampions}
+            <div className="champion-grid-content">    
+                {listChampions}
+            </div>    
         </div>
     );
 }

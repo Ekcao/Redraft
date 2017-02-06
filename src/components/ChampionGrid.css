@@ -2,9 +2,17 @@
     flex: 3;
     border: 1px;
     border-style: dashed;
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
 
+.champion-grid-content {
     display: flex;
     flex-wrap: wrap;
-    padding-left: 16px;
+}
+
+.champion-portrait {
+    width: 64px;
+    height: 64px;
+    padding: 8px;
 }
