@@ -6,32 +6,28 @@ import Controls from './components/Controls';
 import TeamPanel from './components/TeamPanel';
 import './App.css';
 
-import League from './league';
-import Team from './team';
+import Riot from './league/riot';
+import { side, Team } from './league/team';
 
 class App extends Component {
-    side = {
-        BLUE: 'blue',
-        RED: 'red'
-    }
 
     constructor(props) {
         super(props);
         this.state = {
             champions: {},
-            blueTeam: new Team('CLG', this.side.BLUE),
-            redTeam: new Team('TSM', this.side.RED)
+            blueTeam: new Team('CLG', side.BLUE),
+            redTeam: new Team('TSM', side.RED)
         };
     }
 
     componentDidMount() {
-        League.getChampions()
+        Riot.getChampions()
             .then(response => {
                 const champions = response.data.data;
                 Object.keys(champions).forEach(key => {
                     // Add an 'available'' field to keep track of pick/ban status.
                     champions[key]['available'] = true;
-                    champions[key]['portraitURL'] = League.getPortraitURL(champions[key]);
+                    champions[key]['portraitURL'] = Riot.getPortraitURL(champions[key]);
                 });
                 this.setState({ champions });
             });

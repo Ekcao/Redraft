@@ -2,7 +2,7 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'https://ddragon.leagueoflegends.com';
 
-const League = {
+const Riot = {
     getVersion: function () {
         return axios.get('/realms/na.json')
             .then(response => response.data.v)
@@ -21,4 +21,4 @@ const League = {
     }
 }
 
-export default League;
+export default Riot;

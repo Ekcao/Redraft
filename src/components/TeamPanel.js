@@ -5,7 +5,7 @@ import TeamBans from './TeamBans';
 
 import './TeamPanel.css';
 
-import Team from '../team';
+import { Team } from '../league/team';
 
 const TeamPanel = ({ team }) => {
     return (
