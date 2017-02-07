@@ -1,8 +1,3 @@
-const side = {
-    BLUE: 'blue',
-    RED: 'red'
-}
-
 class Team {
     constructor(name, side) {
         this.name = name;
@@ -12,4 +7,4 @@ class Team {
     }
 }
 
-export { side, Team };
+export default Team;

@@ -7,7 +7,8 @@ import TeamPanel from './components/TeamPanel';
 import './App.css';
 
 import Riot from './league/riot';
-import { side, Team } from './league/team';
+import Team from './league/team';
+import { sides, phases, phaseOrder } from './league/phases';
 
 class App extends Component {
 
@@ -15,8 +16,11 @@ class App extends Component {
         super(props);
         this.state = {
             champions: {},
-            blueTeam: new Team('CLG', side.BLUE),
-            redTeam: new Team('TSM', side.RED)
+            teams: {
+                [sides.BLUE]: new Team('CLG', sides.BLUE),
+                [sides.RED]: new Team('TSM', sides.RED)
+            },
+            currentStep: 0
         };
     }
 
@@ -33,26 +37,35 @@ class App extends Component {
             });
     }
 
-    handleChampionClick = (e) => {
-        const team = this.state.redTeam;
-        team.picks = team.picks.concat(e);
+    handleChampionClick = (champ) => {
+        const step = phaseOrder[this.state.currentStep];
+        const teams = this.state.teams;
+
+        console.log(step);        
+        if (step.phase === phases.BAN) {
+            teams[step.side].bans.push(champ);
+        } else {
+            teams[step.side].picks.push(champ);
+        }
+        
         this.setState({
-            redTeam: team
+            teams: teams,
+            currentStep: this.state.currentStep + 1
         });
     }
 
     render() {
-        const { champions, blueTeam, redTeam } = this.state;
+        const { champions, teams } = this.state;
         return (
             <div className="app">
                 <Header />    
                 <div className="app-content">
-                    <TeamPanel team={blueTeam}/>
+                    <TeamPanel team={teams[sides.BLUE]}/>
                     <div className="center-content">
                         <ChampionGrid champions={champions} onChampionClick={this.handleChampionClick} />
                         <Controls />
                     </div>
-                    <TeamPanel team={redTeam}/>
+                    <TeamPanel team={teams[sides.RED]}/>
                 </div>
             </div>
         );
