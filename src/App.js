@@ -38,10 +38,13 @@ class App extends Component {
     }
 
     handleChampionClick = (champ) => {
+        if (this.state.currentStep >= phaseOrder.length) {
+            return;
+        }    
+        
         const step = phaseOrder[this.state.currentStep];
         const teams = this.state.teams;
 
-        console.log(step);        
         if (step.phase === phases.BAN) {
             teams[step.side].bans.push(champ);
         } else {

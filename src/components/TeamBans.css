@@ -1,6 +1,23 @@
 .team-bans {
+    display: flex;
     flex: 1;
+    flex-wrap: wrap;
     margin-top: 16px;
     border: 1px;
     border-style: dashed;
+    align-content: center;
+}
+
+.blue > .team-bans {
+    justify-content: flex-start;
+}
+
+.red > .team-bans {
+    justify-content: flex-end;
+}
+
+.champion-ban {
+    width: 30%;
+    height: 42%;
+    margin: 4px;
 }

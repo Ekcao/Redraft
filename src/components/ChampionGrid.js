@@ -15,7 +15,7 @@ const ChampionGrid = ({ champions, onChampionClick }) => {
     });
     return (
         <div className="champion-grid">
-            <div className="champion-grid-content">    
+            <div className="champion-grid-items">    
                 {listChampions}
             </div>    
         </div>

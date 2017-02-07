@@ -6,14 +6,14 @@
     overflow-x: hidden;
 }
 
-.champion-grid-content {
+.champion-grid-items {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
 .champion-portrait {
-    width: 12%;
+    width: 14%;
     height: 10%;
-    padding: 8px;
+    margin: 8px;
 }
