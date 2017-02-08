@@ -5,11 +5,9 @@ import TeamBans from './TeamBans';
 
 import './TeamPanel.css';
 
-import Team from '../league/team';
-
-const TeamPanel = ({ team }) => {
+const TeamPanel = ({ side, team }) => {
     return (
-        <div className={`team-panel ${team.side}`}>
+        <div className={`team-panel ${side}`}>
             <TeamPicks picks={team.picks}/>
             <TeamBans bans={team.bans}/>
         </div>
@@ -17,7 +15,8 @@ const TeamPanel = ({ team }) => {
 }
 
 TeamPanel.propTypes = {
-    team: React.PropTypes.instanceOf(Team).isRequired
+    side: React.PropTypes.string.isRequired,
+    team: React.PropTypes.object.isRequired
 }
 
 export default TeamPanel;

@@ -7,7 +7,6 @@ import TeamPanel from './components/TeamPanel';
 import './App.css';
 
 import Riot from './league/riot';
-import Team from './league/team';
 import { sides, phases, phaseOrder } from './league/phases';
 
 class App extends Component {
@@ -17,10 +16,12 @@ class App extends Component {
         this.state = {
             champions: {},
             teams: {
-                [sides.BLUE]: new Team('CLG', sides.BLUE),
-                [sides.RED]: new Team('TSM', sides.RED)
+                [sides.BLUE]: { name: 'BLUE', picks: [], bans: [] },
+                [sides.RED]: { name: 'RED', picks: [], bans: [] }
             },
-            currentStep: 0
+            currentStep: 0,
+            history: [],
+            future: []
         };
     }
 
@@ -38,12 +39,10 @@ class App extends Component {
     }
 
     handleChampionClick = (champ) => {
-        if (this.state.currentStep >= phaseOrder.length) {
-            return;
-        }    
+        if (this.state.currentStep >= phaseOrder.length) return;   
         
         const step = phaseOrder[this.state.currentStep];
-        const teams = this.state.teams;
+        const teams = Object.assign({}, JSON.parse(JSON.stringify(this.state.teams)));
 
         if (step.phase === phases.BAN) {
             teams[step.side].bans.push(champ);
@@ -52,9 +51,36 @@ class App extends Component {
         }
         
         this.setState({
+            history: this.state.history.concat(this.state.teams),
             teams: teams,
             currentStep: this.state.currentStep + 1
         });
+    }
+
+    controls = {
+        switchSides: () => {
+            console.log('Switch Sides');
+        },
+
+        undo: () => {
+            if (this.state.history.length < 1) return;
+            
+            this.setState({
+                future: this.state.future.concat(this.state.teams),
+                teams: this.state.history.pop(),
+                currentStep: this.state.currentStep - 1
+            });
+        },
+
+        redo: () => {
+            if (this.state.future.length < 1) return;
+
+            this.setState({
+                history: this.state.history.concat(this.state.teams),
+                teams: this.state.future.pop(),
+                currentStep: this.state.currentStep + 1
+            });
+        }
     }
 
     render() {
@@ -63,12 +89,12 @@ class App extends Component {
             <div className="app">
                 <Header />    
                 <div className="app-content">
-                    <TeamPanel team={teams[sides.BLUE]}/>
+                    <TeamPanel side={sides.BLUE} team={teams[sides.BLUE]}/>
                     <div className="center-content">
                         <ChampionGrid champions={champions} onChampionClick={this.handleChampionClick} />
-                        <Controls />
+                        <Controls controls={this.controls}/>
                     </div>
-                    <TeamPanel team={teams[sides.RED]}/>
+                    <TeamPanel side={sides.RED} team={teams[sides.RED]}/>
                 </div>
             </div>
         );

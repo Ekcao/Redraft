@@ -1,6 +1,13 @@
 .controls {
+    display: flex;
     flex: 1;
     margin-top: 16px;
     border: 1px;
     border-style: dashed;
+}
+
+.controls-button {
+    width: 10%;
+    height: 20%;
+    margin: 12px;
 }

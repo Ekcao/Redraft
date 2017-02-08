@@ -4,7 +4,6 @@
     flex: 3;
     border: 1px;
     border-style: dashed;
-    justify-content: center;
 }
 
 .blue > .team-picks {
