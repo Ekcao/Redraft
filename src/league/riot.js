@@ -16,8 +16,8 @@ const Riot = {
             }).catch(error => console.log(error));
     },
 
-    getPortraitURL: function (champ) {
-        return `https://ddragon.leagueoflegends.com/cdn/${champ.version}/img/champion/${champ.image.full}`;
+    getPortraitURL: function (version, champ) {
+        return `https://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${champ.image.full}`;
     }
 }
 

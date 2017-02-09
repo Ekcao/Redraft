@@ -32,15 +32,15 @@ class App extends Component {
                 Object.keys(champions).forEach(key => {
                     // Add an 'available'' field to keep track of pick/ban status.
                     champions[key]['available'] = true;
-                    champions[key]['portraitURL'] = Riot.getPortraitURL(champions[key]);
+                    champions[key]['portraitURL'] = Riot.getPortraitURL(response.data.version, champions[key]);
                 });
                 this.setState({ champions });
             });
     }
 
     handleChampionClick = (champ) => {
-        if (this.state.currentStep >= phaseOrder.length) return;   
-        
+        if (this.state.currentStep >= phaseOrder.length) return;
+
         const step = phaseOrder[this.state.currentStep];
         const teams = Object.assign({}, JSON.parse(JSON.stringify(this.state.teams)));
 
@@ -49,7 +49,7 @@ class App extends Component {
         } else {
             teams[step.side].picks.push(champ);
         }
-        
+
         this.setState({
             history: this.state.history.concat(this.state.teams),
             teams: teams,
@@ -64,7 +64,7 @@ class App extends Component {
 
         undo: () => {
             if (this.state.history.length < 1) return;
-            
+
             this.setState({
                 future: this.state.future.concat(this.state.teams),
                 teams: this.state.history.pop(),
@@ -84,17 +84,17 @@ class App extends Component {
     }
 
     render() {
-        const { champions, teams } = this.state;
+        const { champions, teams, history, future } = this.state;
         return (
             <div className="app">
-                <Header />    
+                <Header />
                 <div className="app-content">
-                    <TeamPanel side={sides.BLUE} team={teams[sides.BLUE]}/>
+                    <TeamPanel side={sides.BLUE} team={teams[sides.BLUE]} />
                     <div className="center-content">
                         <ChampionGrid champions={champions} onChampionClick={this.handleChampionClick} />
-                        <Controls controls={this.controls}/>
+                        <Controls controls={this.controls} history={history} future={future}/>
                     </div>
-                    <TeamPanel side={sides.RED} team={teams[sides.RED]}/>
+                    <TeamPanel side={sides.RED} team={teams[sides.RED]} />
                 </div>
             </div>
         );

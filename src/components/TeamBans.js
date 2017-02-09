@@ -13,7 +13,7 @@ const TeamBans = ({ bans }) => {
     });
     return (
         <div className="team-bans">
-            {banPortraits}    
+            {banPortraits}
         </div>
     );
 }

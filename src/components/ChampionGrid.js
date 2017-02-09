@@ -7,17 +7,18 @@ const ChampionGrid = ({ champions, onChampionClick }) => {
     Object.keys(champions).forEach(key => {
         listChampions.push(
             <img src={champions[key].portraitURL}
-                key={key}    
+                
+                key={key}
                 className="champion-portrait"
                 alt={champions[key].id}
-                onClick={onChampionClick.bind(this, champions[key])}/>
+                onClick={onChampionClick.bind(this, champions[key])} />
         );
     });
     return (
         <div className="champion-grid">
-            <div className="champion-grid-items">    
+            <div className="champion-grid-items">
                 {listChampions}
-            </div>    
+            </div>
         </div>
     );
 }

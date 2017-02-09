@@ -8,8 +8,8 @@ import './TeamPanel.css';
 const TeamPanel = ({ side, team }) => {
     return (
         <div className={`team-panel ${side}`}>
-            <TeamPicks picks={team.picks}/>
-            <TeamBans bans={team.bans}/>
+            <TeamPicks picks={team.picks} />
+            <TeamBans bans={team.bans} />
         </div>
     );
 }
