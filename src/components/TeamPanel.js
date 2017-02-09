@@ -5,9 +5,9 @@ import TeamBans from './TeamBans';
 
 import './TeamPanel.css';
 
-const TeamPanel = ({ side, team }) => {
+const TeamPanel = ({ color, side, team }) => {
     return (
-        <div className={`team-panel ${side}`}>
+        <div className={`team-panel ${color} ${side}`}>
             <TeamPicks picks={team.picks} />
             <TeamBans bans={team.bans} />
         </div>
@@ -15,6 +15,7 @@ const TeamPanel = ({ side, team }) => {
 }
 
 TeamPanel.propTypes = {
+    color: React.PropTypes.string.isRequired,
     side: React.PropTypes.string.isRequired,
     team: React.PropTypes.object.isRequired
 }

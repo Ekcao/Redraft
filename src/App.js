@@ -20,6 +20,7 @@ class App extends Component {
                 [sides.RED]: { name: 'RED', picks: [], bans: [] }
             },
             currentStep: 0,
+            isBlueOnLeft: true,
             history: [],
             future: []
         };
@@ -59,7 +60,16 @@ class App extends Component {
 
     controls = {
         switchSides: () => {
-            console.log('Switch Sides');
+            this.setState({
+                teams: {
+                    [sides.BLUE]: { name: 'BLUE', picks: [], bans: [] },
+                    [sides.RED]: { name: 'RED', picks: [], bans: [] }
+                },
+                currentStep: 0,
+                isBlueOnLeft: !this.state.isBlueOnLeft,
+                history: [],
+                future: []
+            });
         },
 
         undo: () => {
@@ -80,21 +90,36 @@ class App extends Component {
                 teams: this.state.future.pop(),
                 currentStep: this.state.currentStep + 1
             });
+        },
+
+        reset: () => {
+            this.setState({
+                teams: {
+                    [sides.BLUE]: { name: 'BLUE', picks: [], bans: [] },
+                    [sides.RED]: { name: 'RED', picks: [], bans: [] }
+                },
+                currentStep: 0,
+                isBlueOnLeft: true,
+                history: [],
+                future: []
+            });
         }
     }
 
     render() {
-        const { champions, teams, history, future } = this.state;
+        const { champions, teams, history, future, isBlueOnLeft } = this.state;
+        const leftSide = (isBlueOnLeft) ? sides.BLUE : sides.RED;
+        const rightSide = (isBlueOnLeft) ? sides.RED : sides.BLUE;
         return (
             <div className="app">
                 <Header />
                 <div className="app-content">
-                    <TeamPanel side={sides.BLUE} team={teams[sides.BLUE]} />
+                    <TeamPanel color={leftSide} side="left" team={teams[leftSide]} />
                     <div className="center-content">
                         <ChampionGrid champions={champions} onChampionClick={this.handleChampionClick} />
                         <Controls controls={this.controls} history={history} future={future}/>
                     </div>
-                    <TeamPanel side={sides.RED} team={teams[sides.RED]} />
+                    <TeamPanel color={rightSide} side="right" team={teams[rightSide]} />
                 </div>
             </div>
         );

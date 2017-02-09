@@ -6,14 +6,11 @@
     border: 1px;
     border-style: dashed;
     align-content: center;
-}
-
-.blue > .team-bans {
     justify-content: flex-start;
 }
 
-.red > .team-bans {
-    justify-content: flex-end;
+.right > .team-bans {
+    flex-direction: row-reverse;
 }
 
 .champion-ban {

@@ -6,11 +6,11 @@
     border-style: dashed;
 }
 
-.blue > .team-picks {
+.left > .team-picks {
     align-items: flex-start;
 }
 
-.red > .team-picks {
+.right > .team-picks {
     align-items: flex-end;
 }
 
