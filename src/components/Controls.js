@@ -1,11 +1,12 @@
 import React from 'react';
+
 import './Controls.css';
 
 const Controls = ({ controls, history, future }) => {
     return (
         <div className="controls">
-            <button className="controls-button" onClick={controls.switchSides}>
-                Switch Sides
+            <button className="controls-button" onClick={controls.swap}>
+                Swap
             </button>
             <button className="controls-button" onClick={controls.undo} disabled={history.length < 1}>
                 Undo
