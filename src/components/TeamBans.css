@@ -5,7 +5,7 @@
     margin-top: 16px;
     border: 1px;
     border-style: dashed;
-    align-content: center;
+    align-content: flex-start;
     justify-content: flex-start;
 }
 
@@ -17,4 +17,5 @@
     width: 30%;
     height: 42%;
     margin: 4px;
+    clip-path: inset(7% 7% 7% 7%);
 }

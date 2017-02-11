@@ -16,6 +16,7 @@
     width: 14%;
     height: 10%;
     margin: 8px;
+    clip-path: inset(7% 7% 7% 7%);
 }
 
 .champion-portrait.unavailable {
