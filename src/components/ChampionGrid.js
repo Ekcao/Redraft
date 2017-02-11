@@ -2,14 +2,14 @@ import React from 'react';
 
 import './ChampionGrid.css';
 
-const ChampionGrid = ({ champions, onChampionClick }) => {
+const ChampionGrid = ({ champions, onChampionClick, unavailableChampions }) => {
     const listChampions = [];
     Object.keys(champions).forEach(key => {
+        const unavailable = unavailableChampions.includes(key) ? 'unavailable' : 'available';
         listChampions.push(
             <img src={champions[key].portraitURL}
-                
                 key={key}
-                className="champion-portrait"
+                className={`champion-portrait ${unavailable}`}
                 alt={champions[key].id}
                 onClick={onChampionClick.bind(this, champions[key])} />
         );
@@ -25,6 +25,7 @@ const ChampionGrid = ({ champions, onChampionClick }) => {
 
 ChampionGrid.propTypes = {
     champions: React.PropTypes.object.isRequired,
+    unavailableChampions: React.PropTypes.array.isRequired,
     onChampionClick: React.PropTypes.func
 }
 

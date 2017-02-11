@@ -17,3 +17,7 @@
     height: 10%;
     margin: 8px;
 }
+
+.champion-portrait.unavailable {
+    filter: grayscale(100%);
+}

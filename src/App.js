@@ -8,6 +8,7 @@ import './App.css';
 
 import Riot from './league/riot';
 import { sides, phases, phaseOrder } from './league/phases';
+import { newTeams } from './league/util';
 
 class App extends Component {
 
@@ -15,10 +16,8 @@ class App extends Component {
         super(props);
         this.state = {
             champions: {},
-            teams: {
-                [sides.BLUE]: { name: 'BLUE', picks: [], bans: [] },
-                [sides.RED]: { name: 'RED', picks: [], bans: [] }
-            },
+            unavailableChampions: [],
+            teams: newTeams(),
             currentStep: 0,
             isBlueOnLeft: true,
             history: [],
@@ -31,9 +30,7 @@ class App extends Component {
             .then(response => {
                 const champions = response.data.data;
                 Object.keys(champions).forEach(key => {
-                    // Add an 'available'' field to keep track of pick/ban status.
-                    champions[key]['available'] = true;
-                    champions[key]['portraitURL'] = Riot.getPortraitURL(response.data.version, champions[key]);
+                    champions[key].portraitURL = Riot.getPortraitURL(response.data.version, champions[key]);
                 });
                 this.setState({ champions });
             });
@@ -51,9 +48,15 @@ class App extends Component {
             teams[step.side].picks.push(champ);
         }
 
+        const prevState = {
+            teams: this.state.teams,
+            unavailableChampions: this.state.unavailableChampions
+        };
+
         this.setState({
-            history: this.state.history.concat(this.state.teams),
+            history: this.state.history.concat(prevState),
             teams: teams,
+            unavailableChampions: this.state.unavailableChampions.concat(champ.id),
             currentStep: this.state.currentStep + 1
         });
     }
@@ -61,23 +64,29 @@ class App extends Component {
     controls = {
         switchSides: () => {
             this.setState({
-                teams: {
-                    [sides.BLUE]: { name: 'BLUE', picks: [], bans: [] },
-                    [sides.RED]: { name: 'RED', picks: [], bans: [] }
-                },
+                teams: newTeams(),
                 currentStep: 0,
                 isBlueOnLeft: !this.state.isBlueOnLeft,
                 history: [],
-                future: []
+                future: [],
+                unavailableChampions: []
             });
         },
 
         undo: () => {
             if (this.state.history.length < 1) return;
 
+            const nextState = {
+                teams: this.state.teams,
+                unavailableChampions: this.state.unavailableChampions
+            };
+
+            const prevState = this.state.history.pop();
+
             this.setState({
-                future: this.state.future.concat(this.state.teams),
-                teams: this.state.history.pop(),
+                future: this.state.future.concat(nextState),
+                teams: prevState.teams,
+                unavailableChampions: prevState.unavailableChampions,
                 currentStep: this.state.currentStep - 1
             });
         },
@@ -85,29 +94,35 @@ class App extends Component {
         redo: () => {
             if (this.state.future.length < 1) return;
 
+            const prevState = {
+                teams: this.state.teams,
+                unavailableChampions: this.state.unavailableChampions
+            };
+
+            const newState = this.state.future.pop();
+
             this.setState({
-                history: this.state.history.concat(this.state.teams),
-                teams: this.state.future.pop(),
+                history: this.state.history.concat(prevState),
+                teams: newState.teams,
+                unavailableChampions: newState.unavailableChampions,
                 currentStep: this.state.currentStep + 1
             });
         },
 
         reset: () => {
             this.setState({
-                teams: {
-                    [sides.BLUE]: { name: 'BLUE', picks: [], bans: [] },
-                    [sides.RED]: { name: 'RED', picks: [], bans: [] }
-                },
+                teams: newTeams(),
                 currentStep: 0,
                 isBlueOnLeft: true,
                 history: [],
-                future: []
+                future: [],
+                unavailableChampions: []
             });
         }
     }
 
     render() {
-        const { champions, teams, history, future, isBlueOnLeft } = this.state;
+        const { champions, teams, history, future, isBlueOnLeft, unavailableChampions } = this.state;
         const leftSide = (isBlueOnLeft) ? sides.BLUE : sides.RED;
         const rightSide = (isBlueOnLeft) ? sides.RED : sides.BLUE;
         return (
@@ -116,8 +131,11 @@ class App extends Component {
                 <div className="app-content">
                     <TeamPanel color={leftSide} side="left" team={teams[leftSide]} />
                     <div className="center-content">
-                        <ChampionGrid champions={champions} onChampionClick={this.handleChampionClick} />
-                        <Controls controls={this.controls} history={history} future={future}/>
+                        <ChampionGrid
+                            champions={champions}
+                            unavailableChampions={unavailableChampions}
+                            onChampionClick={this.handleChampionClick} />
+                        <Controls controls={this.controls} history={history} future={future} />
                     </div>
                     <TeamPanel color={rightSide} side="right" team={teams[rightSide]} />
                 </div>
