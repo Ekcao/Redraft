@@ -1,8 +1,7 @@
 .team-panel {
     flex: 1;
     padding: 16px;
-    border: 1px;
-    border-style: solid;
+    border: 2px solid #262626;
     display: flex;
     flex-direction: column;
 }

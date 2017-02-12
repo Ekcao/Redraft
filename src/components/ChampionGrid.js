@@ -7,11 +7,11 @@ const ChampionGrid = ({ champions, onChampionClick, unavailableChampions }) => {
     Object.keys(champions).forEach(key => {
         const unavailable = unavailableChampions.includes(key) ? 'unavailable' : 'available';
         listChampions.push(
-            <img src={champions[key].portraitURL}
-                key={key}
-                className={`champion-portrait ${unavailable}`}
-                alt={champions[key].id}
-                onClick={onChampionClick.bind(this, champions[key])} />
+            <div key={key} className={`champion-portrait ${unavailable}`}>
+                <img src={champions[key].portraitURL}
+                    alt={champions[key].id}
+                    onClick={onChampionClick.bind(this, champions[key])} />
+            </div>
         );
     });
     return (

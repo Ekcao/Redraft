@@ -5,8 +5,8 @@ import './Controls.css';
 const Controls = ({ controls, history, future }) => {
     return (
         <div className="controls">
-            <button className="controls-button" onClick={controls.swap}>
-                Swap
+            <button className="controls-button" onClick={controls.switchSides}>
+                Switch Sides
             </button>
             <button className="controls-button" onClick={controls.undo} disabled={history.length < 1}>
                 Undo

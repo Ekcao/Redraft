@@ -10,4 +10,18 @@
     width: 10%;
     height: 20%;
     margin: 12px;
+    color: #937341;
+    background-color: #14181d;
+    border-color: #937341;
+}
+
+.controls-button:focus {
+    outline: 0;
+}
+
+.controls-button[disabled] {
+    border-style: solid;
+    border-color: gray;
+    background-color: #101217;
+    color: gray;
 }
