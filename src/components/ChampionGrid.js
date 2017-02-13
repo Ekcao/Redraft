@@ -1,5 +1,6 @@
 import React from 'react';
 
+import ChampionSquare from './ChampionSquare';
 import './ChampionGrid.css';
 
 const ChampionGrid = ({ champions, onChampionClick, unavailableChampions }) => {
@@ -7,11 +8,9 @@ const ChampionGrid = ({ champions, onChampionClick, unavailableChampions }) => {
     Object.keys(champions).forEach(key => {
         const unavailable = unavailableChampions.includes(key) ? 'unavailable' : 'available';
         listChampions.push(
-            <div key={key} className={`champion-portrait ${unavailable}`}>
-                <img src={champions[key].portraitURL}
-                    alt={champions[key].id}
-                    onClick={onChampionClick.bind(this, champions[key])} />
-            </div>
+            <div key={key} className={`champion-square-wrapper ${unavailable}`}>
+                <ChampionSquare champ={champions[key]} onClick={onChampionClick.bind(this, champions[key])} />
+            </div>    
         );
     });
     return (

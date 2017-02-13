@@ -38,6 +38,7 @@ class App extends Component {
 
     handleChampionClick = (champ) => {
         if (this.state.currentStep >= phaseOrder.length) return;
+        if (this.state.unavailableChampions.includes(champ.id)) return;
 
         const step = phaseOrder[this.state.currentStep];
         const teams = Object.assign({}, JSON.parse(JSON.stringify(this.state.teams)));

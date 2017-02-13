@@ -23,5 +23,4 @@ html, body, #root {
     display: flex;
     flex-direction: column;
     padding: 16px;
-    border: 2px solid #262626;
 }

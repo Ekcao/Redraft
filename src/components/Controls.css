@@ -2,8 +2,8 @@
     display: flex;
     flex: 1;
     margin-top: 16px;
-    border: 1px;
-    border-style: dashed;
+    border: 3px ridge #937341;
+    background-color: #14181d;
 }
 
 .controls-button {

@@ -1,7 +1,7 @@
 .champion-grid {
     flex: 3;
-    border: 1px;
-    border-style: dashed;
+    border: 3px ridge #937341;
+    background-color: #14181d;
     overflow-y: scroll;
     overflow-x: hidden;
 }
@@ -12,18 +12,17 @@
     justify-content: center;
 }
 
-.champion-portrait {
-    width: 14%;
-    margin: 8px;
-    background-color: #937341
+.champion-square-wrapper {
+    width: 16%;
+    padding: 8px;
 }
 
-.champion-portrait > img {
+.champion-square-wrapper > .champion-square {
+    margin: auto;
     width: 100%;
     height: 100%;
-    clip-path: inset(4% 4% 4% 4%);
 }
 
-.champion-portrait.unavailable {
+.champion-square-wrapper.unavailable {
     filter: grayscale(100%);
 }
