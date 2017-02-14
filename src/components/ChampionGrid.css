@@ -13,12 +13,17 @@
 }
 
 .champion-square-wrapper {
-    padding: 8px;
+    margin: 8px;
     cursor: pointer;
+    display: inline-block;
+    flex: 0 0 12%;
+    height: auto;
 }
 
-.champion-square-wrapper > .champion-square {
-    margin: auto;
+.champion-square-wrapper:before {
+    content: '';
+    float: left;
+    padding-top: 100%;
 }
 
 .champion-square-wrapper.unavailable {

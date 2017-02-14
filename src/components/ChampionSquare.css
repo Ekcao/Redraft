@@ -1,11 +1,11 @@
 .champion-square {
     background-color: #937341;
-    width: 90px;
-    height: 90px;
+    display: block;
 }
 
 .champion-img {
     width: 100%;
     height: 100%;
     clip-path: inset(2% 2% 2% 2%);
+    display: block;
 }
