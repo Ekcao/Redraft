@@ -6,10 +6,11 @@ import './ChampionGrid.css';
 const ChampionGrid = ({ champions, onChampionClick, unavailableChampions }) => {
     const listChampions = [];
     Object.keys(champions).forEach(key => {
+        const champ = champions[key];
         const unavailable = unavailableChampions.includes(key) ? 'unavailable' : 'available';
         listChampions.push(
             <div key={key} className={`champion-square-wrapper ${unavailable}`}>
-                <ChampionSquare champ={champions[key]} onClick={onChampionClick.bind(this, champions[key])} />
+                <ChampionSquare name={champ.id} imageURL={champ.portraitURL} onClick={onChampionClick.bind(this, champions[key])} />
             </div>    
         );
     });

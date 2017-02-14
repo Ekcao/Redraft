@@ -16,6 +16,7 @@ class App extends Component {
         super(props);
         this.state = {
             champions: {},
+            // Instead of having to copy champions each pick
             unavailableChampions: [],
             teams: newTeams(),
             currentStep: 0,
@@ -37,10 +38,13 @@ class App extends Component {
     }
 
     handleChampionClick = (champ) => {
+        // All picks and bans are done.
         if (this.state.currentStep >= phaseOrder.length) return;
+        // This pick is 'disabled'
         if (this.state.unavailableChampions.includes(champ.id)) return;
 
         const step = phaseOrder[this.state.currentStep];
+        // Make a copy of the current teams
         const teams = Object.assign({}, JSON.parse(JSON.stringify(this.state.teams)));
 
         if (step.phase === phases.BAN) {
@@ -49,6 +53,7 @@ class App extends Component {
             teams[step.side].picks.push(champ);
         }
 
+        // What to keep track of with history/future        
         const prevState = {
             teams: this.state.teams,
             unavailableChampions: this.state.unavailableChampions
@@ -122,13 +127,22 @@ class App extends Component {
         }
     }
 
+    headerMessage = () => {
+        const { currentStep } = this.state;
+        if (currentStep < phaseOrder.length) {
+            return `${phaseOrder[currentStep].phase} ${phaseOrder[currentStep].side}`.toUpperCase();
+        } else {
+            return '';
+        }
+    }
+
     render() {
         const { champions, teams, history, future, isBlueOnLeft, unavailableChampions } = this.state;
         const leftSide = (isBlueOnLeft) ? sides.BLUE : sides.RED;
         const rightSide = (isBlueOnLeft) ? sides.RED : sides.BLUE;
         return (
             <div className="app">
-                <Header />
+                <Header message={this.headerMessage()}/>
                 <div className="app-content">
                     <TeamPanel color={leftSide} side="left" team={teams[leftSide]} />
                     <div className="center-content">

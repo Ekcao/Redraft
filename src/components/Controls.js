@@ -6,16 +6,16 @@ const Controls = ({ controls, history, future }) => {
     return (
         <div className="controls">
             <button className="controls-button" onClick={controls.switchSides}>
-                Switch Sides
+                <span>Switch Sides</span>
             </button>
             <button className="controls-button" onClick={controls.undo} disabled={history.length < 1}>
-                Undo
+                <span>Undo</span>
             </button>
             <button className="controls-button" onClick={controls.redo} disabled={future.length < 1}>
-                Redo
+                <span>Redo</span>
             </button>
             <button className="controls-button" onClick={controls.reset}>
-                Reset
+                <span>Reset</span>
             </button>
         </div>
     );

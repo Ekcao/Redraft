@@ -3,7 +3,7 @@
     flex: 1;
     flex-wrap: wrap;
     margin-top: 16px;
-    border: 3px ridge #937341;
+    border: 1px ridge #937341;
     background-color: #14181d;
     align-content: flex-start;
     justify-content: flex-start;
@@ -15,7 +15,7 @@
 
 .champion-ban {
     width: 33%;
-    /*height: 50%;*/
+    height: 50%;
     padding: 4px;
 }
 

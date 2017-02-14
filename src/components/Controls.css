@@ -2,7 +2,7 @@
     display: flex;
     flex: 1;
     margin-top: 16px;
-    border: 3px ridge #937341;
+    border: 1px solid #937341;
     background-color: #14181d;
 }
 
@@ -12,7 +12,10 @@
     margin: 12px;
     color: #937341;
     background-color: #14181d;
-    border-color: #937341;
+    border: 1px solid #937341;
+    box-shadow: 0px 0px 1px 1px black inset;
+    text-transform: uppercase;
+    cursor: pointer;
 }
 
 .controls-button:focus {
@@ -21,7 +24,7 @@
 
 .controls-button[disabled] {
     border-style: solid;
-    border-color: gray;
-    background-color: #101217;
-    color: gray;
+    border-color: lightgray;
+    background-color: #283039;
+    color: lightgray;
 }

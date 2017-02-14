@@ -1,6 +1,6 @@
 .champion-grid {
     flex: 3;
-    border: 3px ridge #937341;
+    border: 1px solid #937341;
     background-color: #14181d;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -13,14 +13,12 @@
 }
 
 .champion-square-wrapper {
-    width: 16%;
     padding: 8px;
+    cursor: pointer;
 }
 
 .champion-square-wrapper > .champion-square {
     margin: auto;
-    width: 100%;
-    height: 100%;
 }
 
 .champion-square-wrapper.unavailable {

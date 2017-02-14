@@ -1,5 +1,12 @@
 .header {
     flex: 1;
-    border-bottom: 2px solid #262626;
+    border-bottom: 3px solid #262626;
     background-color: #121212;
+    text-align: center;
+    color: #937341;
+}
+
+.header > h1 {
+    margin-top: 48px;
+    margin-bottom: 0;
 }

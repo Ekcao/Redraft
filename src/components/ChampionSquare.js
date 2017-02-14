@@ -2,37 +2,27 @@ import React from 'react';
 
 import './ChampionSquare.css';
 
-const ChampionSquare = ({ champ, onClick }) => {
-    let content;
-    if (champ.portraitURL) {
-        content = (
-            <img src={champ.portraitURL}
-                className="champion-img"
-                onClick={onClick}
-                alt={champ.id} />
-        );
-    } else {
-        content = (
-            <div className="champion-placeholder" />
-        );
-    }
-
+const ChampionSquare = ({ name, imageURL, onClick }) => {
     return (
         <div className="champion-square">
-            { content }
+            <img src={imageURL}
+                className="champion-img"
+                onClick={onClick}
+                alt={name} />
         </div>
     );
 }
 
 ChampionSquare.propTypes = {
-    champ: React.PropTypes.object,
+    name: React.PropTypes.string,
+    imageURL: React.PropTypes.string,
     onClick: React.PropTypes.func
 };
 
 ChampionSquare.defaultProps = {
-    champ: {
-        id: 'placeholder'
-    }
+    name: 'Placeholder',
+    imageURL: '',
+    onClick: () => {}
 };
 
 export default ChampionSquare;

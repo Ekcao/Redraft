@@ -1,13 +1,13 @@
 import React from 'react';
 
-import ChampionSquare from './ChampionSquare';
+import ChampionCard from './ChampionCard';
 import './TeamPicks.css';
 
 const TeamPicks = ({ picks }) => {
     const pickPortraits = picks.map(champ => {
         return (
             <div className="champion-pick" key={champ.id}>
-                <ChampionSquare champ={champ} />    
+                <ChampionCard name={champ.name} imageURL={champ.portraitURL} />    
             </div>    
         );
     });

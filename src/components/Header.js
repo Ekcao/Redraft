@@ -1,12 +1,16 @@
 import React from 'react';
 import './Header.css';
 
-const Header = () => {
+const Header = ({ message }) => {
     return (
         <div className="header">
-            Header
+            <h1>{message}</h1>
         </div>
     );
+}
+
+Header.propTypes = {
+    message: React.PropTypes.string
 }
 
 export default Header;
