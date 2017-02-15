@@ -1,19 +1,14 @@
 import React from 'react';
 
-import ChampionSquare from './ChampionSquare';
+import BanPhaseInfo from './BanPhaseInfo';
 import './TeamBans.css';
 
 const TeamBans = ({ bans }) => {
-    const banPortraits = bans.map(champ => {
-        return (
-            <div className="champion-ban" key={champ.id}>
-                <ChampionSquare name={champ.id} imageURL={champ.portraitURL} />    
-            </div>    
-        );
-    });
     return (
         <div className="team-bans">
-            {banPortraits}
+            <h3>Bans</h3>
+            <BanPhaseInfo title="Phase 1" bans={bans} />   
+            <BanPhaseInfo title="Phase 2" bans={bans} />   
         </div>
     );
 };

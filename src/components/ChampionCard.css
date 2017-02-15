@@ -3,16 +3,15 @@
     background-color: #14181d;
     display: flex;
     border: 1px solid #937341;
+    align-items: center;
 }
 
-.champion-card > .champion-square {
-    height: 100%;
+.champion-card > .champion-square-wrapper {
+    flex: 0 0 30%;
 }
 
 .champion-card > h3 {
-    display: inline-block;
-    vertical-align: top;
-    margin-top: 0;
+    flex: 1;
     color: #937341;
     padding-left: 8px;
     padding-right: 8px;

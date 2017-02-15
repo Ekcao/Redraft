@@ -6,7 +6,9 @@ import './ChampionCard.css';
 const ChampionCard = ({ name, imageURL }) => {
     return (
         <div className="champion-card">
-            <ChampionSquare name={name} imageURL={imageURL} />
+            <div className="champion-square-wrapper">
+                <ChampionSquare name={name} imageURL={imageURL} />
+            </div>
             <h3>{name}</h3>
         </div>
     );

@@ -1,0 +1,23 @@
+.ban-phase-info {
+    display: flex;
+    align-items: center;
+    color: #937341;
+}
+
+.ban-phase-info > h4 {
+    flex: 0 0 30%;
+    padding-right: 4px;
+    padding-left: 4px;
+}
+
+.ban-phase-items {
+    display: flex;
+    flex: 0 0 70%;
+    padding-right: 4px;
+    padding-left: 4px;
+}
+
+.ban-phase-items > .champion-square-wrapper {
+    flex: 0 0 33%;
+    margin: 0;
+}

@@ -9,3 +9,7 @@
     clip-path: inset(2% 2% 2% 2%);
     display: block;
 }
+
+.unclickable {
+    cursor: default;
+}
