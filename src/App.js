@@ -24,6 +24,12 @@ class App extends Component {
             history: [],
             future: []
         };
+
+        this.handleChampionClick = this.handleChampionClick.bind(this);
+        this.controls.switchSides = this.controls.switchSides.bind(this);
+        this.controls.undo = this.controls.undo.bind(this);
+        this.controls.redo = this.controls.redo.bind(this);
+        this.controls.reset = this.controls.reset.bind(this);
     }
 
     componentDidMount() {
@@ -37,7 +43,7 @@ class App extends Component {
             });
     }
 
-    handleChampionClick = (champ) => {
+    handleChampionClick(champ) {
         // All picks and bans are done.
         if (this.state.currentStep >= phaseOrder.length) return;
         // This pick is 'disabled'
@@ -53,14 +59,8 @@ class App extends Component {
             teams[step.side].picks.push(champ);
         }
 
-        // What to keep track of with history/future        
-        const prevState = {
-            teams: this.state.teams,
-            unavailableChampions: this.state.unavailableChampions
-        };
-
         this.setState({
-            history: this.state.history.concat(prevState),
+            history: this.state.history.concat(this.state),
             teams: teams,
             unavailableChampions: this.state.unavailableChampions.concat(champ.id),
             currentStep: this.state.currentStep + 1
@@ -68,7 +68,7 @@ class App extends Component {
     }
 
     controls = {
-        switchSides: () => {
+        switchSides: function() {
             this.setState({
                 teams: newTeams(),
                 currentStep: 0,
@@ -79,43 +79,33 @@ class App extends Component {
             });
         },
 
-        undo: () => {
+        undo: function() {
             if (this.state.history.length < 1) return;
-
-            const nextState = {
-                teams: this.state.teams,
-                unavailableChampions: this.state.unavailableChampions
-            };
 
             const prevState = this.state.history.pop();
 
             this.setState({
-                future: this.state.future.concat(nextState),
+                future: this.state.future.concat(this.state),
                 teams: prevState.teams,
                 unavailableChampions: prevState.unavailableChampions,
                 currentStep: this.state.currentStep - 1
             });
         },
 
-        redo: () => {
+        redo: function() {
             if (this.state.future.length < 1) return;
-
-            const prevState = {
-                teams: this.state.teams,
-                unavailableChampions: this.state.unavailableChampions
-            };
 
             const newState = this.state.future.pop();
 
             this.setState({
-                history: this.state.history.concat(prevState),
+                history: this.state.history.concat(this.state),
                 teams: newState.teams,
                 unavailableChampions: newState.unavailableChampions,
                 currentStep: this.state.currentStep + 1
             });
         },
 
-        reset: () => {
+        reset: function() {
             this.setState({
                 teams: newTeams(),
                 currentStep: 0,

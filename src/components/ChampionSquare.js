@@ -23,8 +23,7 @@ ChampionSquare.propTypes = {
 
 ChampionSquare.defaultProps = {
     name: 'Placeholder',
-    imageURL: placeHolder,
-    // onClick: () => {}
+    imageURL: placeHolder
 };
 
 export default ChampionSquare;

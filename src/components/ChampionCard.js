@@ -12,6 +12,11 @@ const ChampionCard = ({ name, imageURL }) => {
             <h3>{name}</h3>
         </div>
     );
+};
+
+ChampionCard.propTypes = {
+    name: React.PropTypes.string,
+    imageURL: React.PropTypes.string
 }
 
 export default ChampionCard;

@@ -10,8 +10,11 @@ const ChampionGrid = ({ champions, onChampionClick, unavailableChampions }) => {
         const unavailable = unavailableChampions.includes(key) ? 'unavailable' : 'available';
         listChampions.push(
             <div key={key} className={`champion-square-wrapper ${unavailable}`}>
-                <ChampionSquare name={champ.id} imageURL={champ.portraitURL} onClick={onChampionClick.bind(this, champions[key])} />
-            </div>    
+                <ChampionSquare
+                    name={champ.id}
+                    imageURL={champ.portraitURL}
+                    onClick={onChampionClick.bind(this, champions[key])} />
+            </div>
         );
     });
     return (

@@ -4,6 +4,7 @@
     margin-top: 16px;
     border: 1px solid #937341;
     background-color: #14181d;
+    justify-content: center;
 }
 
 .controls-button {

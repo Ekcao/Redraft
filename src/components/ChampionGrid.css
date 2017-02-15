@@ -20,12 +20,6 @@
     height: auto;
 }
 
-.champion-square-wrapper:before {
-    content: '';
-    float: left;
-    padding-top: 100%;
-}
-
 .champion-square-wrapper.unavailable {
     filter: grayscale(100%);
 }
