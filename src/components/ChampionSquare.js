@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './ChampionSquare.css';
+import placeHolder from '../../public/images/gray_square.jpg';
 
 const ChampionSquare = ({ name, imageURL, onClick }) => {
     const clickable = (onClick) ? 'clickable' : 'unclickable';
@@ -22,7 +23,7 @@ ChampionSquare.propTypes = {
 
 ChampionSquare.defaultProps = {
     name: 'Placeholder',
-    imageURL: '',
+    imageURL: placeHolder,
     // onClick: () => {}
 };
 
