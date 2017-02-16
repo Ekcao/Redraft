@@ -10,8 +10,12 @@
 .champion-img {
     width: 100%;
     height: 100%;
-    clip-path: inset(2% 2% 2% 2%);
+    clip-path: inset(3% 3% 3% 3%);
     display: block;
+}
+
+.champion-img:hover {
+    clip-path: inset(4% 4% 4% 4%);
 }
 
 .unclickable {
