@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { TitleBar } from 'react-desktop/windows';
 
 import Header from './components/Header';
 import ChampionGrid from './components/ChampionGrid';
@@ -7,11 +8,11 @@ import TeamPanel from './components/TeamPanel';
 import './App.css';
 
 import Riot from './league/riot';
+import Electron from './electron-remote';
 import { sides, phases, phaseOrder, newTeams } from './league/pickban';
 import { replaceFirstNullWith } from './util/arrays';
 
 class App extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
@@ -132,6 +133,14 @@ class App extends Component {
         const rightSide = (isBlueOnLeft) ? sides.RED : sides.BLUE;
         return (
             <div className="app">
+                <TitleBar
+                    title="Redraft"
+                    controls background="#121212"
+                    theme="dark"
+                    onCloseClick={Electron.close}
+                    onMinimizeClick={Electron.minimize}
+                    onMaximizeClick={Electron.toggleMaximize}
+                    onRestoreDownClick={Electron.toggleMaximize}/>    
                 <Header message={this.headerMessage()}/>
                 <div className="app-content">
                     <TeamPanel color={leftSide} side="left" team={teams[leftSide]} />

@@ -8,7 +8,7 @@ const url = require('url');
 let mainWindow;
 
 function createWindow() {
-    mainWindow = new BrowserWindow({ width: 1200, height: 800 });
+    mainWindow = new BrowserWindow({ width: 1400, height: 900, frame: false });
 
     const startUrl = process.env.ELECTRON_START_URL || url.format({
         pathname: path.join(__dirname, '/../build/index.html'),
@@ -17,7 +17,7 @@ function createWindow() {
     });    
     mainWindow.loadURL(startUrl);
 
-    // mainWindow.webContents.openDevTools();
+    mainWindow.webContents.openDevTools();
 
     mainWindow.on('closed', function () {
         mainWindow = null;

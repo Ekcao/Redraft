@@ -2,7 +2,7 @@
     flex: 3;
     border: 1px solid #937341;
     background-color: #14181d;
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
 }
 
@@ -10,6 +10,10 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+.champion-grid::-webkit-scrollbar {
+    display: none;
 }
 
 .champion-square-wrapper {
