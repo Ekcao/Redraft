@@ -1,14 +1,17 @@
-const sides = {
+import { nullArrayOfSize } from '../util/arrays';
+import { NUM_BANS_TOTAL, NUM_PICKS_TOTAL } from '../util/constants';
+
+export const sides = {
     BLUE: 'blue',
     RED: 'red'
 }
 
-const phases = {
+export const phases = {
     PICK: 'pick',
     BAN: 'ban'
 }
 
-const phaseOrder = [
+export const phaseOrder = [
     // Ban Phase 1
     { phase: phases.BAN, side: sides.BLUE },
     { phase: phases.BAN, side: sides.RED },
@@ -35,4 +38,9 @@ const phaseOrder = [
     { phase: phases.PICK, side: sides.RED }
 ];
 
-export { sides, phases, phaseOrder };
+export function newTeams() {
+    return {
+        [sides.BLUE]: { name: 'BLUE', picks: nullArrayOfSize(NUM_PICKS_TOTAL), bans: nullArrayOfSize(NUM_BANS_TOTAL) },
+        [sides.RED]: { name: 'RED', picks: nullArrayOfSize(NUM_PICKS_TOTAL), bans: nullArrayOfSize(NUM_BANS_TOTAL) }
+    }
+}

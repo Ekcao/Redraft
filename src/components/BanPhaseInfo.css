@@ -20,4 +20,5 @@
 .ban-phase-items > .champion-square-wrapper {
     flex: 0 0 33%;
     margin: 0;
+    padding: 2px;
 }

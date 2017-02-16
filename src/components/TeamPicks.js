@@ -4,10 +4,16 @@ import ChampionCard from './ChampionCard';
 import './TeamPicks.css';
 
 const TeamPicks = ({ picks }) => {
-    const pickPortraits = picks.map(champ => {
-        return (
-            <ChampionCard key={champ.id} name={champ.name} imageURL={champ.portraitURL} />    
-        );
+    const pickPortraits = picks.map((champ, index) => {
+        if (champ) {
+            return (
+                <ChampionCard key={champ.id} name={champ.name} imageURL={champ.portraitURL} />
+            );
+        } else {
+            return (
+                <ChampionCard key={index} />
+            );
+        }
     });
     return (
         <div className="team-picks">

@@ -7,8 +7,8 @@ import TeamPanel from './components/TeamPanel';
 import './App.css';
 
 import Riot from './league/riot';
-import { sides, phases, phaseOrder } from './league/phases';
-import { newTeams } from './league/util';
+import { sides, phases, phaseOrder, newTeams } from './league/pickban';
+import { replaceFirstNullWith } from './util/arrays';
 
 class App extends Component {
 
@@ -54,9 +54,9 @@ class App extends Component {
         const teams = Object.assign({}, JSON.parse(JSON.stringify(this.state.teams)));
 
         if (step.phase === phases.BAN) {
-            teams[step.side].bans.push(champ);
+            replaceFirstNullWith(teams[step.side].bans, champ);
         } else {
-            teams[step.side].picks.push(champ);
+            replaceFirstNullWith(teams[step.side].picks, champ);
         }
 
         this.setState({
