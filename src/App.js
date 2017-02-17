@@ -150,8 +150,9 @@ class App extends Component {
         return (
             <div className="app">
                 <TitleBar
-                    title="Redraft"
-                    controls background="#121212"
+                    className="title-bar"    
+                    controls
+                    background="#121212"
                     theme="dark"
                     onCloseClick={Electron.close}
                     onMinimizeClick={Electron.minimize}

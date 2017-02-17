@@ -4,6 +4,10 @@ html, body, #root {
     border: 1px solid #937341;
 }
 
+.title-bar{
+    justify-content: flex-end;
+}
+
 .app {
     display: flex;
     text-align: center;

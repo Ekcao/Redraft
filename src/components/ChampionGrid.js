@@ -63,7 +63,7 @@ class ChampionGrid extends Component {
         return (
             <div className="champion-grid">
                 <div className="filter-container">
-                    <input type="text" name="filter" onChange={this.filterByNameOrTag} />
+                    <input type="text" name="filter" onChange={this.filterByNameOrTag} placeholder="Filter" />
                 </div>
                 <div className="champion-grid-items">
                     {championSquaresList}

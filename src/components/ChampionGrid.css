@@ -39,4 +39,5 @@
 
 .champion-square-wrapper.unavailable {
     filter: grayscale(100%);
+    cursor: default;
 }

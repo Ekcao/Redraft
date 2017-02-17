@@ -8,6 +8,7 @@
 
 .blue-red {
     background: linear-gradient(to right, #2477e8, #121212, #121212, #cb2124);
+    /*opacity: 0.8;*/
 }
 
 .blue-red.active-blue {
