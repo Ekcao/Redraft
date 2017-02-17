@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { TitleBar } from 'react-desktop/windows';
 
-import Header from './components/Header';
+import DraftHeader from './components/DraftHeader';
 import ChampionGrid from './components/ChampionGrid';
 import Controls from './components/Controls';
 import TeamPanel from './components/TeamPanel';
@@ -125,10 +125,19 @@ class App extends Component {
         }
     }
 
-    headerMessage = () => {
+    activeStep = () => {
         const { currentStep } = this.state;
         if (currentStep < phaseOrder.length) {
             return `${phaseOrder[currentStep].phase} ${phaseOrder[currentStep].side}`.toUpperCase();
+        } else {
+            return '';
+        }
+    }
+
+    activeColor = () => {
+        const { currentStep } = this.state;
+        if (currentStep < phaseOrder.length) {
+            return phaseOrder[currentStep].side;
         } else {
             return '';
         }
@@ -148,7 +157,7 @@ class App extends Component {
                     onMinimizeClick={Electron.minimize}
                     onMaximizeClick={Electron.toggleMaximize}
                     onRestoreDownClick={Electron.toggleMaximize}/>    
-                <Header message={this.headerMessage()}/>
+                <DraftHeader message={this.activeStep()} leftColor={leftSide} rightColor={rightSide} activeColor={this.activeColor()}/>
                 <div className="app-content">
                     <TeamPanel color={leftSide} side="left" team={teams[leftSide]} />
                     <div className="center-content">
