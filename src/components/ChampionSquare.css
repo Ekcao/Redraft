@@ -14,6 +14,11 @@
     display: block;
 }
 
+.champion-img.empty {
+    background: #333333;
+    padding-bottom: 100%;
+}
+
 .champion-img:hover {
     clip-path: inset(4% 4% 4% 4%);
 }

@@ -17,6 +17,7 @@ const ChampionGrid = ({ champions, onChampionClick, unavailableChampions }) => {
             </div>
         );
     });
+    
     return (
         <div className="champion-grid">
             <div className="champion-grid-items">

@@ -55,9 +55,9 @@ class App extends Component {
         const teams = Object.assign({}, JSON.parse(JSON.stringify(this.state.teams)));
 
         if (step.phase === phases.BAN) {
-            replaceFirstNullWith(teams[step.side].bans, champ);
+            teams[step.side].bans = replaceFirstNullWith(teams[step.side].bans, champ);
         } else {
-            replaceFirstNullWith(teams[step.side].picks, champ);
+            teams[step.side].picks = replaceFirstNullWith(teams[step.side].picks, champ);
         }
 
         this.setState({
@@ -83,10 +83,11 @@ class App extends Component {
         undo: function() {
             if (this.state.history.length < 1) return;
 
-            const prevState = this.state.history.pop();
+            const prevState = this.state.history.slice(-1)[0];
 
             this.setState({
                 future: this.state.future.concat(this.state),
+                history: this.state.history.slice(0, -1),
                 teams: prevState.teams,
                 unavailableChampions: prevState.unavailableChampions,
                 currentStep: this.state.currentStep - 1
@@ -96,10 +97,11 @@ class App extends Component {
         redo: function() {
             if (this.state.future.length < 1) return;
 
-            const newState = this.state.future.pop();
+            const newState = this.state.future.slice(-1)[0];
 
             this.setState({
                 history: this.state.history.concat(this.state),
+                future: this.state.future.slice(0, -1),
                 teams: newState.teams,
                 unavailableChampions: newState.unavailableChampions,
                 currentStep: this.state.currentStep + 1

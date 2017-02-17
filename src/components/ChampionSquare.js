@@ -1,16 +1,19 @@
 import React from 'react';
 
 import './ChampionSquare.css';
-import placeHolder from '../../public/images/gray_square.jpg';
 
 const ChampionSquare = ({ name, imageURL, onClick }) => {
     const clickable = (onClick) ? 'clickable' : 'unclickable';
+    let content;
+    if (imageURL) {
+        content = <img src={imageURL} className="champion-img" onClick={onClick} alt={name} />;
+    } else {
+        content = <div className="champion-img empty" />;
+    }
+    
     return (
         <div className={`champion-square ${clickable}`}>
-            <img src={imageURL}
-                className="champion-img"
-                onClick={onClick}
-                alt={name} />
+            {content}
         </div>
     );
 }
@@ -19,11 +22,6 @@ ChampionSquare.propTypes = {
     name: React.PropTypes.string,
     imageURL: React.PropTypes.string,
     onClick: React.PropTypes.func
-};
-
-ChampionSquare.defaultProps = {
-    name: 'Placeholder',
-    imageURL: placeHolder
 };
 
 export default ChampionSquare;

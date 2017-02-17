@@ -4,7 +4,10 @@ export function nullArrayOfSize(size) {
 
 export function replaceFirstNullWith(arr, obj) {
     const index = arr.indexOf(null);
+    const arrCopy = [...arr];
     if (index > -1) {
-        arr[index] = obj;
+        arrCopy[index] = obj;
     }
+
+    return arrCopy;
 }
