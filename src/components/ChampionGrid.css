@@ -29,7 +29,7 @@
     display: none;
 }
 
-.champion-square-wrapper {
+.champion-grid-items > .champion-square-wrapper {
     margin: 8px;
     cursor: pointer;
     display: inline-block;
