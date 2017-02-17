@@ -4,13 +4,13 @@
     margin-top: 16px;
     border: 1px solid #937341;
     background-color: #14181d;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .controls-button {
-    width: 10%;
+    width: 20%;
     height: 20%;
-    margin: 12px;
+    margin: 8px;
     color: #937341;
     background-color: #14181d;
     border: 1px solid #937341;
