@@ -128,7 +128,7 @@ class App extends Component {
     activeStep = () => {
         const { currentStep } = this.state;
         if (currentStep < phaseOrder.length) {
-            return `${phaseOrder[currentStep].phase} ${phaseOrder[currentStep].side}`.toUpperCase();
+            return `${phaseOrder[currentStep].side} SIDE ${phaseOrder[currentStep].phase}`.toUpperCase();
         } else {
             return '';
         }
