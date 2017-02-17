@@ -16,7 +16,7 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            champions: {},
+            champions: [],
             // Instead of having to copy champions each pick
             unavailableChampions: [],
             teams: newTeams(),
@@ -36,11 +36,16 @@ class App extends Component {
     componentDidMount() {
         Riot.getChampions()
             .then(response => {
-                const champions = response.data.data;
-                Object.keys(champions).forEach(key => {
-                    champions[key].portraitURL = Riot.getPortraitURL(response.data.version, champions[key]);
+                const championsObj = response.data.data;
+
+                const championsArray = Object.keys(championsObj).map(key => {
+                    championsObj[key].portraitURL = Riot.getPortraitURL(response.data.version, championsObj[key]);
+                    return championsObj[key];
                 });
-                this.setState({ champions });
+
+                this.setState({
+                    champions: championsArray
+                });
             });
     }
 

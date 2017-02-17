@@ -2,17 +2,30 @@
     flex: 3;
     border: 1px solid #937341;
     background-color: #14181d;
-    overflow-y: auto;
-    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-container {
+    width: 100%;
+    padding: 8px;
+    background-color: #121212;
+    border-bottom: 3px solid #262626;
+}
+
+.filter-container > input {
+    float: right;
 }
 
 .champion-grid-items {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
-.champion-grid::-webkit-scrollbar {
+.champion-grid-items::-webkit-scrollbar {
     display: none;
 }
 
