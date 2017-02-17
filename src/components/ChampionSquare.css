@@ -17,6 +17,7 @@
 .champion-img.empty {
     background: #333333;
     padding-bottom: 100%;
+    box-shadow: 0px 0px 2px 2px black inset;
 }
 
 .champion-img:hover {
