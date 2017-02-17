@@ -1,5 +1,5 @@
 # Redraft
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app) and [Electron](http://electron.atom.io/).
 
 Redraft is a tool to simulate the *League of Legends* competitive pick and ban phase.
 Current functionalities include:
@@ -8,6 +8,7 @@ Current functionalities include:
 - Undo
 - Redo
 - Reset
+- Filter by name or tag (e.g. Marksman)
 
 ## Installation
 
