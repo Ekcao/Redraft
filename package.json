@@ -4,6 +4,7 @@
   "private": true,
   "devDependencies": {
     "electron": "^1.4.15",
+    "electron-builder": "^13.9.0",
     "react-scripts": "0.8.5"
   },
   "dependencies": {
