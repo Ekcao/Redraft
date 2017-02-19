@@ -1,0 +1,20 @@
+.redraft {
+    display: flex;
+    text-align: center;
+    height: 100%;
+    flex-direction: column;
+}
+
+.redraft-content {
+    display: flex;
+    flex-direction: row;
+    flex: 9;
+    width: 100%;
+}
+
+.center-content {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+}

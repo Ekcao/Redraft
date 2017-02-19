@@ -4,27 +4,12 @@ html, body, #root {
     border: 1px solid #937341;
 }
 
-.title-bar{
-    justify-content: flex-end;
-}
-
 .app {
     display: flex;
-    text-align: center;
+    flex-direction: column;
     height: 100%;
-    flex-direction: column;
 }
 
-.app-content {
-    display: flex;
-    flex-direction: row;
-    flex: 9;
-    width: 100%;
-}
-
-.center-content {
-    flex: 3;
-    display: flex;
-    flex-direction: column;
-    padding: 16px;
+.title-bar{
+    justify-content: flex-end;
 }
