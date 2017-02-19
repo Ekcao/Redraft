@@ -10,9 +10,14 @@ Current functionalities include:
 - Reset
 - Filter by name or tag (e.g. Marksman)
 
+## Building
+
+- `npm install`
+- `npm start` followed by `npm run electron` for live reload.
+
 ## Installation
 
-WIP
+Download .zip and extract [here](https://github.com/Ekcao/redraft-web/releases).
 
 ## Screenshots
 
