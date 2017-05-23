@@ -18,7 +18,7 @@ Current functionalities include:
 
 ## Installation
 
-WIP
+[Download](https://github.com/Ekcao/redraft-web/releases) .zip and extract.
 
 ## Screenshots
 
