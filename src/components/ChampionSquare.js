@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './ChampionSquare.css';
 
@@ -19,9 +20,9 @@ const ChampionSquare = ({ name, imageURL, onClick }) => {
 }
 
 ChampionSquare.propTypes = {
-    name: React.PropTypes.string,
-    imageURL: React.PropTypes.string,
-    onClick: React.PropTypes.func
+    name: PropTypes.string,
+    imageURL: PropTypes.string,
+    onClick: PropTypes.func
 };
 
 export default ChampionSquare;

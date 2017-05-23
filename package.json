@@ -3,15 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "electron": "^1.4.15",
-    "electron-packager": "^8.5.1",
-    "react-scripts": "0.8.5"
+    "electron": "^1.6.8",
+    "electron-packager": "^8.7.0",
+    "react-scripts": "1.0.5"
   },
   "dependencies": {
     "axios": "^0.15.3",
-    "react": "^15.4.2",
-    "react-desktop": "^0.2.17",
-    "react-dom": "^15.4.2"
+    "prop-types": "^15.5.10",
+    "react": "^15.5.4",
+    "react-desktop": "^0.3.0",
+    "react-dom": "^15.5.4"
   },
   "main": "src/electron-main.js",
   "homepage": "./",

@@ -10,6 +10,12 @@ Current functionalities include:
 - Reset
 - Filter by name or tag (e.g. Marksman)
 
+## Build Steps
+1. `npm install`
+2. Run locally: `npm start`
+3. Open at `http://localhost:3000/`
+4. Run Electron: `npm run electron`
+
 ## Installation
 
 WIP

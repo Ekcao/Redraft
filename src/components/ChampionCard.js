@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import ChampionSquare from './ChampionSquare';
 import './ChampionCard.css';
@@ -15,8 +16,8 @@ const ChampionCard = ({ name, imageURL }) => {
 };
 
 ChampionCard.propTypes = {
-    name: React.PropTypes.string,
-    imageURL: React.PropTypes.string
+    name: PropTypes.string,
+    imageURL: PropTypes.string
 }
 
 export default ChampionCard;

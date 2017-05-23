@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import ChampionCard from './ChampionCard';
 import './TeamPicks.css';
@@ -23,7 +24,7 @@ const TeamPicks = ({ picks }) => {
 }
 
 TeamPicks.propTypes = {
-    picks: React.PropTypes.array.isRequired
+    picks: PropTypes.array.isRequired
 }
 
 export default TeamPicks;

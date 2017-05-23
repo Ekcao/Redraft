@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import './DraftHeader.css';
 
 const DraftHeader = ({ message, leftColor, rightColor, activeColor }) => {
@@ -10,10 +12,10 @@ const DraftHeader = ({ message, leftColor, rightColor, activeColor }) => {
 }
 
 DraftHeader.propTypes = {
-    message: React.PropTypes.string,
-    leftColor: React.PropTypes.string.isRequired,
-    rightColor: React.PropTypes.string.isRequired,
-    activeColor: React.PropTypes.string
+    message: PropTypes.string,
+    leftColor: PropTypes.string.isRequired,
+    rightColor: PropTypes.string.isRequired,
+    activeColor: PropTypes.string
 }
 
 export default DraftHeader;

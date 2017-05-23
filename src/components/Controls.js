@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './Controls.css';
 
@@ -22,9 +23,9 @@ const Controls = ({ controls, history, future }) => {
 }
 
 Controls.propTypes = {
-    controls: React.PropTypes.object.isRequired,
-    history: React.PropTypes.array.isRequired,
-    future: React.PropTypes.array.isRequired
+    controls: PropTypes.object.isRequired,
+    history: PropTypes.array.isRequired,
+    future: PropTypes.array.isRequired
 }
 
 export default Controls;

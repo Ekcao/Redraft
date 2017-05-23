@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import TeamPicks from './TeamPicks';
 import TeamBans from './TeamBans';
@@ -15,9 +16,9 @@ const TeamPanel = ({ color, side, team }) => {
 }
 
 TeamPanel.propTypes = {
-    color: React.PropTypes.string.isRequired,
-    side: React.PropTypes.string.isRequired,
-    team: React.PropTypes.object.isRequired
+    color: PropTypes.string.isRequired,
+    side: PropTypes.string.isRequired,
+    team: PropTypes.object.isRequired
 }
 
 export default TeamPanel;

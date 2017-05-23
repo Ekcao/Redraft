@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import BanPhaseInfo from './BanPhaseInfo';
 import { NUM_BANS_PHASE_ONE } from '../util/constants';
@@ -15,7 +16,7 @@ const TeamBans = ({ bans }) => {
 };
 
 TeamBans.propTypes = {
-    bans: React.PropTypes.array.isRequired
+    bans: PropTypes.array.isRequired
 };
 
 export default TeamBans;

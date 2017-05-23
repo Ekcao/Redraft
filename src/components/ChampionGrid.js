@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import ChampionSquare from './ChampionSquare';
+import MageIcon from '../images/role_icon_mage.png';
 import './ChampionGrid.css';
 
 class ChampionGrid extends Component {
@@ -63,6 +65,12 @@ class ChampionGrid extends Component {
         return (
             <div className="champion-grid">
                 <div className="filter-container">
+                    <div className="filter-role">
+                        <img src={MageIcon} alt="MageIcon" />  
+                        <img src={MageIcon} alt="MageIcon" />
+                        <img src={MageIcon} alt="MageIcon" />
+                        <img src={MageIcon} alt="MageIcon" />
+                    </div>    
                     <input type="text" name="filter" onChange={this.filterByNameOrTag} placeholder="Filter" />
                 </div>
                 <div className="champion-grid-items">
@@ -74,9 +82,9 @@ class ChampionGrid extends Component {
 }
 
 ChampionGrid.propTypes = {
-    champions: React.PropTypes.array.isRequired,
-    unavailableChampions: React.PropTypes.array.isRequired,
-    onChampionClick: React.PropTypes.func
+    champions: PropTypes.array.isRequired,
+    unavailableChampions: PropTypes.array.isRequired,
+    onChampionClick: PropTypes.func
 }
 
 export default ChampionGrid;
