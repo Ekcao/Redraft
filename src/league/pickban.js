@@ -38,7 +38,7 @@ export const phaseOrder = [
     { phase: phases.PICK, side: sides.RED }
 ];
 
-export function newTeams() {
+export function createNewTeams() {
     return {
         [sides.BLUE]: { name: 'BLUE', picks: nullArrayOfSize(NUM_PICKS_TOTAL), bans: nullArrayOfSize(NUM_BANS_TOTAL) },
         [sides.RED]: { name: 'RED', picks: nullArrayOfSize(NUM_PICKS_TOTAL), bans: nullArrayOfSize(NUM_BANS_TOTAL) }

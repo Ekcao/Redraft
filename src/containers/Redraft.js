@@ -7,7 +7,7 @@ import TeamPanel from '../components/TeamPanel';
 import './Redraft.css';
 
 import Riot from '../league/riot';
-import { sides, phases, phaseOrder, newTeams } from '../league/pickban';
+import { sides, phaseOrder, createNewTeams } from '../league/pickban';
 import { replaceFirstNullWith } from '../util/arrays';
 
 class Redraft extends Component {
@@ -17,7 +17,7 @@ class Redraft extends Component {
             champions: [],
             // Instead of having to copy champions each pick
             unavailableChampions: [],
-            teams: newTeams(),
+            teams: createNewTeams(),
             currentStep: 0,
             isBlueOnLeft: true,
             history: [],
@@ -35,7 +35,6 @@ class Redraft extends Component {
         Riot.getChampions()
             .then(response => {
                 const championsObj = response.data.data;
-
                 const championsArray = Object.keys(championsObj).map(key => {
                     championsObj[key].portraitURL = Riot.getPortraitURL(response.data.version, championsObj[key]);
                     return championsObj[key];
@@ -48,20 +47,13 @@ class Redraft extends Component {
     }
 
     handleChampionClick(champ) {
-        // All picks and bans are done.
         if (this.state.currentStep >= phaseOrder.length) return;
-        // This pick is 'disabled'
         if (this.state.unavailableChampions.includes(champ.id)) return;
 
         const step = phaseOrder[this.state.currentStep];
-        // Make a copy of the current teams
         const teams = Object.assign({}, JSON.parse(JSON.stringify(this.state.teams)));
 
-        if (step.phase === phases.BAN) {
-            teams[step.side].bans = replaceFirstNullWith(teams[step.side].bans, champ);
-        } else {
-            teams[step.side].picks = replaceFirstNullWith(teams[step.side].picks, champ);
-        }
+		teams[step.side][step.phase + 's'] = replaceFirstNullWith(teams[step.side][step.phase + 's'], champ);
 
         this.setState({
             history: this.state.history.concat(this.state),
@@ -74,7 +66,7 @@ class Redraft extends Component {
     controls = {
         switchSides: function () {
             this.setState({
-                teams: newTeams(),
+                teams: createNewTeams(),
                 currentStep: 0,
                 isBlueOnLeft: !this.state.isBlueOnLeft,
                 history: [],
@@ -87,7 +79,6 @@ class Redraft extends Component {
             if (this.state.history.length < 1) return;
 
             const prevState = this.state.history.slice(-1)[0];
-
             this.setState({
                 future: this.state.future.concat(this.state),
                 history: this.state.history.slice(0, -1),
@@ -101,7 +92,6 @@ class Redraft extends Component {
             if (this.state.future.length < 1) return;
 
             const newState = this.state.future.slice(-1)[0];
-
             this.setState({
                 history: this.state.history.concat(this.state),
                 future: this.state.future.slice(0, -1),
@@ -113,7 +103,7 @@ class Redraft extends Component {
 
         reset: function () {
             this.setState({
-                teams: newTeams(),
+                teams: createNewTeams(),
                 currentStep: 0,
                 isBlueOnLeft: true,
                 history: [],
