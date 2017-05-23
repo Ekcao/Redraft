@@ -1,14 +1,14 @@
 .controls {
-    display: flex;
     flex: 1;
     margin-top: 16px;
     border: 1px solid #937341;
     background-color: #14181d;
-    justify-content: space-between;
+    
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
 }
 
 .controls-button {
-    width: 20%;
     height: 20%;
     margin: 8px;
     color: #937341;

@@ -13,16 +13,26 @@
     border-bottom: 3px solid #262626;
 }
 
+/*.filter-container > .filter-role {
+    width: 100%;
+}*/
+
+/*.filter-container > .filter-role > .filter-role-icon {
+    height: 32px;
+}*/
+
 .filter-container > input {
     float: right;
 }
 
 .champion-grid-items {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: scroll;
+
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 8px;
+    padding: 8px;
 }
 
 .champion-grid-items::-webkit-scrollbar {
@@ -30,11 +40,7 @@
 }
 
 .champion-grid-items > .champion-square-wrapper {
-    margin: 8px;
     cursor: pointer;
-    display: inline-block;
-    flex: 0 0 12%;
-    height: auto;
 }
 
 .champion-square-wrapper.unavailable {

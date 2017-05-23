@@ -64,13 +64,7 @@ class ChampionGrid extends Component {
         const championSquaresList = this.championSquaresList();
         return (
             <div className="champion-grid">
-                <div className="filter-container">
-                    <div className="filter-role">
-                        <img src={MageIcon} alt="MageIcon" />  
-                        <img src={MageIcon} alt="MageIcon" />
-                        <img src={MageIcon} alt="MageIcon" />
-                        <img src={MageIcon} alt="MageIcon" />
-                    </div>    
+                <div className="filter-container">   
                     <input type="text" name="filter" onChange={this.filterByNameOrTag} placeholder="Filter" />
                 </div>
                 <div className="champion-grid-items">
