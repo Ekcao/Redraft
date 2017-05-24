@@ -3,13 +3,13 @@
     margin-top: 16px;
     border: 1px solid #937341;
     background-color: #14181d;
-    
+
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
+	grid-template-rows: repeat(4, 1fr);
 }
 
 .controls-button {
-    height: 20%;
     margin: 8px;
     color: #937341;
     background-color: #14181d;
@@ -17,20 +17,20 @@
     box-shadow: 0px 0px 1px 1px black inset;
     text-transform: uppercase;
     cursor: pointer;
-}
 
-.controls-button:focus {
-    outline: 0;
-}
+	&:focus {
+	    outline: 0;
+	}
 
-.controls-button:hover {
-    border-color: #c4b998;
-    color: #c4b998;
-}
+	&:hover {
+	    border-color: #c4b998;
+	    color: #c4b998;
+	}
 
-.controls-button[disabled] {
-    border-style: solid;
-    border-color: gray;
-    background-color: #14181d;
-    color: gray;
+	&[disabled] {
+	    border-style: solid;
+	    border-color: gray;
+	    background-color: #14181d;
+	    color: gray;
+	}
 }

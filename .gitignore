@@ -16,3 +16,6 @@ npm-debug.log
 
 # packaged executables
 /redraft-*
+
+# compiled .css
+src/**/*.css

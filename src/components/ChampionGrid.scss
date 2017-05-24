@@ -1,0 +1,41 @@
+.champion-grid {
+    flex: 3;
+    border: 1px solid #937341;
+    background-color: #14181d;
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-container {
+    width: 100%;
+    padding: 8px;
+    background-color: #121212;
+    border-bottom: 3px solid #262626;
+
+	input {
+	    float: right;
+	}
+}
+
+.champion-grid-items {
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 8px;
+    padding: 8px;
+
+	&::-webkit-scrollbar {
+	    display: none;
+	}
+
+	.champion-square-wrapper {
+	    cursor: pointer;
+
+		&.unavailable {
+		    filter: grayscale(100%);
+		    cursor: default;
+		}
+	}
+}

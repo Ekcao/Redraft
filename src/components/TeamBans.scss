@@ -1,0 +1,30 @@
+.team-bans {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin-top: 16px;
+    border: 1px ridge #937341;
+    background-color: #14181d;
+    color: white;
+    justify-content: space-between;
+
+	h3 {
+	    flex: 0 0 10%;
+	    margin: 8px auto;
+	    color: #937341;
+	}
+
+	.ban-phase-info {
+	    flex: 0 0 40%;
+	}
+}
+
+.right {
+	.team-bans > .ban-phase-info {
+		flex-direction: row-reverse;
+
+		.ban-phase-items {
+			flex-direction: row-reverse;
+		}
+	}
+}

@@ -4,6 +4,11 @@
     flex: 3;
     background-color: #101217;
     justify-content: space-between;
+
+	.champion-card {
+	    flex: 0 0 19%;
+	    width: 100%;
+	}
 }
 
 .left > .team-picks {
@@ -12,13 +17,8 @@
 
 .right > .team-picks {
     align-items: flex-end;
-}
 
-.right > .team-picks > .champion-card {
-    flex-direction: row-reverse;
-}
-
-.team-picks > .champion-card {
-    flex: 0 0 19%;
-    width: 100%;
+	.champion-card {
+	    flex-direction: row-reverse;
+	}
 }

@@ -3,13 +3,21 @@
     text-align: center;
     height: 100%;
     flex-direction: column;
-}
 
-.redraft-content {
-    display: flex;
-    flex-direction: row;
-    flex: 9;
-    width: 100%;
+	.draft-header {
+		flex: 1;
+	}
+
+	.redraft-content {
+		display: flex;
+	    flex-direction: row;
+	    flex: 9;
+	    width: 100%;
+
+		.team-panel {
+			flex: 1;
+		}
+	}
 }
 
 .center-content {
