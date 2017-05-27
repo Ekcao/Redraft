@@ -1,14 +1,14 @@
 .champion-grid {
-    flex: 3;
     border: 1px solid #937341;
     background-color: #14181d;
-    display: flex;
-    flex-direction: column;
+	overflow-y: auto;
+
+	display: grid;
+	grid-template-rows: 10% 1fr;
 }
 
 .filter-container {
-    width: 100%;
-    padding: 8px;
+    padding: 1vh 1vw;
     background-color: #121212;
     border-bottom: 3px solid #262626;
 
@@ -19,12 +19,11 @@
 
 .champion-grid-items {
     overflow-x: hidden;
-    overflow-y: auto;
 
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-gap: 8px;
-    padding: 8px;
+    grid-template-columns: repeat(8, 1fr);
+    grid-gap: 1vw;
+    padding: 1vw;
 
 	&::-webkit-scrollbar {
 	    display: none;

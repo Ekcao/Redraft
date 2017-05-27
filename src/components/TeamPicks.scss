@@ -1,24 +1,7 @@
 .team-picks {
-    display: flex;
-    flex-direction: column;
-    flex: 3;
     background-color: #101217;
-    justify-content: space-between;
 
-	.champion-card {
-	    flex: 0 0 19%;
-	    width: 100%;
-	}
-}
-
-.left > .team-picks {
-    align-items: flex-start;
-}
-
-.right > .team-picks {
-    align-items: flex-end;
-
-	.champion-card {
-	    flex-direction: row-reverse;
-	}
+	display: grid;
+	grid-template-rows: repeat(5, 1fr);
+	grid-gap: 1vh;
 }

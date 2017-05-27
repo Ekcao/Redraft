@@ -138,17 +138,13 @@ class Redraft extends Component {
         return (
             <div className="redraft">
                 <DraftHeader message={this.activeStep()} leftColor={leftSide} rightColor={rightSide} activeColor={this.activeColor()} />
-                <div className="redraft-content">
-                    <TeamPanel color={leftSide} side="left" team={teams[leftSide]} />
-                    <div className="center-content">
-                        <ChampionGrid
-                            champions={champions}
-                            unavailableChampions={unavailableChampions}
-                            onChampionClick={this.handleChampionClick} />
-                        <Controls controls={this.controls} history={history} future={future} />
-                    </div>
-                    <TeamPanel color={rightSide} side="right" team={teams[rightSide]} />
-                </div>
+				<TeamPanel color={leftSide} side="left" team={teams[leftSide]} />
+				<ChampionGrid
+					champions={champions}
+					unavailableChampions={unavailableChampions}
+					onChampionClick={this.handleChampionClick} />
+				<Controls controls={this.controls} history={history} future={future} />
+				<TeamPanel color={rightSide} side="right" team={teams[rightSide]} />
             </div>
         );
     }

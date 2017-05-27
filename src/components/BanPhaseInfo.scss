@@ -1,21 +1,13 @@
 .ban-phase-info {
-    display: flex;
-    align-items: center;
     color: #937341;
-    justify-content: space-between;
-}
+	
+	display: grid;
+	grid-template-columns: 10% repeat(3, 1fr);
+	grid-gap: .5vw;
 
-.ban-phase-info > h4 {
-    flex: 0 0 30%;
-}
-
-.ban-phase-items {
-    display: flex;
-    flex: 0 0 70%;
-}
-
-.ban-phase-items > .champion-square-wrapper {
-    flex: 0 0 33%;
-    margin: 0;
-    padding: 2px;
+	h5 {
+		writing-mode: vertical-lr;
+		margin: 0;
+		padding: 0;
+	}
 }

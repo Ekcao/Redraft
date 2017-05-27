@@ -1,28 +1,40 @@
 .redraft {
-    display: flex;
-    text-align: center;
-    height: 100%;
-    flex-direction: column;
-
 	.draft-header {
-		flex: 1;
+		grid-area: header;
+		margin-bottom: 1vh;
 	}
 
-	.redraft-content {
-		display: flex;
-	    flex-direction: row;
-	    flex: 9;
-	    width: 100%;
+	.champion-grid {
+		grid-area: championGrid;
+	}
 
-		.team-panel {
-			flex: 1;
+	.team-panel {
+		&.left {
+			grid-area: leftSide;
+			margin-left: 1vw;
+		}
+
+		&.right {
+			grid-area: rightSide;
+			margin-right: 1vw;
 		}
 	}
-}
 
-.center-content {
-    flex: 3;
-    display: flex;
-    flex-direction: column;
-    padding: 16px;
+	.controls {
+		grid-area: controls;
+		margin-top: 2vh;
+	}
+
+	height: 100%;
+	text-align: center;
+	padding-bottom: 1vh;
+
+	display: grid;
+	grid-template-columns: 1fr 3fr 1fr;
+	grid-template-rows: 10% 2fr 1fr;
+	grid-column-gap: 1vw;
+	grid-template-areas:
+		"header header header"
+		"leftSide championGrid rightSide"
+		"leftSide controls rightSide";
 }

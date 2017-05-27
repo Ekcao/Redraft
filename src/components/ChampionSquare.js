@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import EmptySquare from '../images/gray_square.png';
 import './ChampionSquare.css';
 
 const ChampionSquare = ({ name, imageURL, onClick }) => {
@@ -9,9 +10,9 @@ const ChampionSquare = ({ name, imageURL, onClick }) => {
     if (imageURL) {
         content = <img src={imageURL} className="champion-img" onClick={onClick} alt={name} />;
     } else {
-        content = <div className="champion-img empty" />;
+        content = <img src={EmptySquare} className="champion-img empty" alt="Empty"/>;
     }
-    
+
     return (
         <div className={`champion-square ${clickable}`}>
             {content}

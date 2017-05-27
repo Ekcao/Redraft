@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import ChampionSquare from './ChampionSquare';
-import MageIcon from '../images/role_icon_mage.png';
+// import MageIcon from '../images/role_icon_mage.png';
 import './ChampionGrid.css';
 
 class ChampionGrid extends Component {
@@ -64,7 +64,7 @@ class ChampionGrid extends Component {
         const championSquaresList = this.championSquaresList();
         return (
             <div className="champion-grid">
-                <div className="filter-container">   
+                <div className="filter-container">
                     <input type="text" name="filter" onChange={this.filterByNameOrTag} placeholder="Filter" />
                 </div>
                 <div className="champion-grid-items">

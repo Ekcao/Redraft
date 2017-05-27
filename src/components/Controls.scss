@@ -1,16 +1,11 @@
 .controls {
-    flex: 1;
-    margin-top: 16px;
-    border: 1px solid #937341;
-    background-color: #14181d;
-
     display: grid;
     grid-template-columns: repeat(5, 1fr);
 	grid-template-rows: repeat(4, 1fr);
+	grid-gap: 1vw;
 }
 
 .controls-button {
-    margin: 8px;
     color: #937341;
     background-color: #14181d;
     border: 1px solid #937341;

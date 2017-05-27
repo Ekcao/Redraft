@@ -21,11 +21,9 @@ const BanPhaseInfo = ({ title, bans }) => {
     });
     return (
         <div className="ban-phase-info">
-            <h4>{title}</h4>
-            <div className="ban-phase-items">
-                {banPhaseItems}    
-            </div>    
-        </div>    
+			<h5>{title}</h5>
+			{banPhaseItems}
+        </div>
     );
 }
 

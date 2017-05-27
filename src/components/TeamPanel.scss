@@ -1,0 +1,17 @@
+.team-panel {
+	.team-picks {
+		grid-area: teamPicks;
+	}
+
+	.team-bans {
+		grid-area: teamBans;
+	}
+
+	display: grid;
+	grid-template-rows: 3fr 1fr;
+	grid-gap: 1vh;
+	grid-template-areas:
+		"teamPicks"
+		"teamBans";
+
+}

@@ -1,18 +1,16 @@
 .champion-card {
-    padding: 8px;
     background-color: #14181d;
-    display: flex;
     border: 1px solid #937341;
-    align-items: center;
 
-	.champion-square-wrapper {
-	    flex: 0 0 30%;
-	}
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	align-items: center;
 
 	h3 {
-	    flex: 1;
 	    color: #937341;
-	    padding-left: 8px;
-	    padding-right: 8px;
+	}
+
+	.champion-square {
+		margin: .5vh .5vw;
 	}
 }

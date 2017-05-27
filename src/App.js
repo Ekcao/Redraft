@@ -1,15 +1,15 @@
 import React from 'react';
-import { TitleBar } from 'react-desktop/windows';
+// import { TitleBar } from 'react-desktop/windows';
 
 import Redraft from './containers/Redraft';
 import './App.css';
 
-import Electron from './electron-remote';
+// import Electron from './electron-remote';
 
 const App = () => {
     return (
         <div className="app">
-            <TitleBar
+            {/* <TitleBar
                 className="title-bar"
                 controls
                 background="#121212"
@@ -17,7 +17,7 @@ const App = () => {
                 onCloseClick={Electron.close}
                 onMinimizeClick={Electron.minimize}
                 onMaximizeClick={Electron.toggleMaximize}
-                onRestoreDownClick={Electron.toggleMaximize} />
+			onRestoreDownClick={Electron.toggleMaximize} /> */}
             <Redraft />
         </div>
     );
