@@ -1,7 +1,7 @@
 import React from 'react';
 
 import ChampionSquare from './ChampionSquare';
-import './BanPhaseInfo.css';
+import '../styles/BanPhaseInfo.css';
 
 const BanPhaseInfo = ({ title, bans }) => {
     const banPhaseItems = bans.map((champ, index) => {

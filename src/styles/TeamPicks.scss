@@ -1,5 +1,7 @@
+@import 'colors';
+
 .team-picks {
-    background-color: #101217;
+    background-color: $dark-teal;
 
 	display: grid;
 	grid-template-rows: repeat(5, 1fr);

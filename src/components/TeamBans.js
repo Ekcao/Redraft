@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import BanPhaseInfo from './BanPhaseInfo';
 import { NUM_BANS_PHASE_ONE } from '../util/constants';
-import './TeamBans.css';
+import '../styles/TeamBans.css';
 
 const TeamBans = ({ bans }) => {
     return (

@@ -1,13 +1,15 @@
+@import 'colors';
+
 .champion-card {
-    background-color: #14181d;
-    border: 1px solid #937341;
+    background-color: $teal;
+    border: 1px solid $gold;
 
 	display: grid;
 	grid-template-columns: 1fr 2fr;
 	align-items: center;
 
 	h3 {
-	    color: #937341;
+	    color: $gold;
 	}
 
 	.champion-square {

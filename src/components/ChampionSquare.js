@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import EmptySquare from '../images/gray_square.png';
-import './ChampionSquare.css';
+import '../styles/ChampionSquare.css';
 
 const ChampionSquare = ({ name, imageURL, onClick }) => {
     const clickable = (onClick) ? 'clickable' : 'unclickable';

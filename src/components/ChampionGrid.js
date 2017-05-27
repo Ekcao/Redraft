@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import ChampionSquare from './ChampionSquare';
-// import MageIcon from '../images/role_icon_mage.png';
-import './ChampionGrid.css';
+import '../styles/ChampionGrid.css';
 
 class ChampionGrid extends Component {
     constructor(props) {

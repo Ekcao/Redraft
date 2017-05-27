@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import ChampionSquare from './ChampionSquare';
-import './ChampionCard.css';
+import '../styles/ChampionCard.css';
 
 const ChampionCard = ({ name, imageURL }) => {
     return (

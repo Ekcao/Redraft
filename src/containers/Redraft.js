@@ -4,7 +4,7 @@ import DraftHeader from '../components/DraftHeader';
 import ChampionGrid from '../components/ChampionGrid';
 import Controls from '../components/Controls';
 import TeamPanel from '../components/TeamPanel';
-import './Redraft.css';
+import '../styles/Redraft.css';
 
 import Riot from '../league/riot';
 import { sides, phaseOrder, createNewTeams } from '../league/pickban';

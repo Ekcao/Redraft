@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './Controls.css';
+import '../styles/Controls.css';
 
 const Controls = ({ controls, history, future }) => {
     return (

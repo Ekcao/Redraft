@@ -1,3 +1,5 @@
+@import 'colors';
+
 .controls {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -6,9 +8,9 @@
 }
 
 .controls-button {
-    color: #937341;
-    background-color: #14181d;
-    border: 1px solid #937341;
+    color: $gold;
+    background-color: $teal;
+    border: 1px solid $gold;
     box-shadow: 0px 0px 1px 1px black inset;
     text-transform: uppercase;
     cursor: pointer;
@@ -18,14 +20,15 @@
 	}
 
 	&:hover {
-	    border-color: #c4b998;
-	    color: #c4b998;
+	    border-color: $light-gold;
+	    color: $light-gold;
 	}
 
 	&[disabled] {
 	    border-style: solid;
 	    border-color: gray;
-	    background-color: #14181d;
+	    background-color: $teal;
+		box-shadow: none;
 	    color: gray;
 	}
 }

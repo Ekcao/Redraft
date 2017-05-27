@@ -1,11 +1,13 @@
+@import 'colors';
+
 *, *:before, *:after {
 	box-sizing: border-box;
 }
 
 .app {
-	background-color: #101217;
+	background-color: $dark-teal;
     height: 100vh;
-	border: 2px solid #937341;
+	border: 2px solid $gold;
 }
 
 .title-bar {

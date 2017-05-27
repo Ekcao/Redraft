@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './DraftHeader.css';
+import '../styles/DraftHeader.css';
 
 const DraftHeader = ({ message, leftColor, rightColor, activeColor }) => {
     return (

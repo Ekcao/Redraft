@@ -1,6 +1,8 @@
+@import 'colors';
+
 .ban-phase-info {
-    color: #937341;
-	
+    color: $gold;
+
 	display: grid;
 	grid-template-columns: 10% repeat(3, 1fr);
 	grid-gap: .5vw;

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import ChampionCard from './ChampionCard';
-import './TeamPicks.css';
+import '../styles/TeamPicks.css';
 
 const TeamPicks = ({ picks }) => {
     const pickPortraits = picks.map((champ, index) => {

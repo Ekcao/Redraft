@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import TeamPicks from './TeamPicks';
 import TeamBans from './TeamBans';
 
-import './TeamPanel.css';
+import '../styles/TeamPanel.css';
 
 const TeamPanel = ({ color, side, team }) => {
     return (

@@ -1,8 +1,10 @@
+@import 'colors';
+
 .champion-square {
-    background-color: #937341;
+    background-color: $gold;
 
 	&:hover {
-	    background-color: #c4b998;
+	    background-color: $light-gold;
 	}
 }
 

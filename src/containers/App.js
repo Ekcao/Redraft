@@ -1,8 +1,8 @@
 import React from 'react';
 // import { TitleBar } from 'react-desktop/windows';
 
-import Redraft from './containers/Redraft';
-import './App.css';
+import Redraft from './Redraft';
+import '../styles/App.css';
 
 // import Electron from './electron-remote';
 

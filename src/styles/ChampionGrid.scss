@@ -1,6 +1,8 @@
+@import 'colors';
+
 .champion-grid {
-    border: 1px solid #937341;
-    background-color: #14181d;
+    border: 1px solid $gold;
+    background-color: $teal;
 	overflow-y: auto;
 
 	display: grid;
@@ -9,7 +11,7 @@
 
 .filter-container {
     padding: 1vh 1vw;
-    background-color: #121212;
+    background-color: $dark-gray;
     border-bottom: 3px solid #262626;
 
 	input {

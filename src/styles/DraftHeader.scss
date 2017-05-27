@@ -1,0 +1,32 @@
+@import 'colors';
+
+.draft-header {
+    border-bottom: 3px solid $gray;
+    background-color: $dark-gray;
+    text-align: center;
+    color: $gold;
+}
+
+.blue-red {
+    background: linear-gradient(to right, $blue, $dark-gray, $dark-gray, $red);
+
+	&.active-blue {
+	    background: linear-gradient(to right, $blue, $dark-gray, $dark-gray, $dark-gray);
+	}
+
+	&.active-red {
+	    background: linear-gradient(to right, $dark-gray, $dark-gray, $dark-gray, $red);
+	}
+}
+
+.red-blue {
+    background: linear-gradient(to right, $red, $dark-gray, $dark-gray, $blue);
+
+	&.active-red {
+	    background: linear-gradient(to right, $red, $dark-gray, $dark-gray, $dark-gray);
+	}
+
+	&.active-red {
+	    background: linear-gradient(to right, $dark-gray, $dark-gray, $dark-gray, $blue);
+	}
+}

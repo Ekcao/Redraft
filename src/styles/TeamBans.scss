@@ -1,7 +1,9 @@
+@import 'colors';
+
 .team-bans {
 	padding: 1vh 1vw;
-    border: 1px ridge #937341;
-    background-color: #14181d;
+    border: 1px ridge $gold;
+    background-color: $teal;
     color: white;
 
 	display: grid;
@@ -10,7 +12,7 @@
 	align-items: center;
 
 	h4 {
-	    color: #937341;
+	    color: $gold;
 		margin: 0;
 		padding: 0;
 	}
