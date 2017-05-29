@@ -10,12 +10,33 @@
 }
 
 .filter-container {
-    padding: 1vh 1vw;
+	padding: 1vh 1vw 0 1vw;
     background-color: $dark-gray;
-    border-bottom: 3px solid #262626;
+    border-bottom: 3px solid $gray;
 
-	input {
-	    float: right;
+	.filter-roles {
+		float: left;
+		height: 100%;
+		max-width: 50%;
+	}
+
+	.filter-role-icon {
+		float: left;
+		height: 100%;
+		padding: .25vh .25vw;
+
+		&:focus {
+			box-shadow: 0 5px 0 -2px $gold;
+			outline: none;
+		}
+	}
+
+	.filter-input {
+		float: right;
+		padding-left: .5vw;
+		height: 80%;
+		max-width: 50%;
+		margin-bottom: 1vh;
 	}
 }
 

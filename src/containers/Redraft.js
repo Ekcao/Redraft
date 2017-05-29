@@ -19,7 +19,8 @@ class Redraft extends Component {
             unavailableChampions: [],
             teams: createNewTeams(),
             currentStep: 0,
-            isBlueOnLeft: true,
+			leftSideColor: sides.BLUE,
+			rightSideColor: sides.RED,
             history: [],
             future: []
         };
@@ -68,7 +69,8 @@ class Redraft extends Component {
             this.setState({
                 teams: createNewTeams(),
                 currentStep: 0,
-                isBlueOnLeft: !this.state.isBlueOnLeft,
+				leftSideColor: this.state.rightSideColor,
+				rightSideColor: this.state.leftSideColor,
                 history: [],
                 future: [],
                 unavailableChampions: []
@@ -105,7 +107,8 @@ class Redraft extends Component {
             this.setState({
                 teams: createNewTeams(),
                 currentStep: 0,
-                isBlueOnLeft: true,
+				leftSideColor: sides.BLUE,
+				rightSideColor: sides.RED,
                 history: [],
                 future: [],
                 unavailableChampions: []
@@ -132,19 +135,26 @@ class Redraft extends Component {
     }
 
     render() {
-        const { champions, teams, history, future, isBlueOnLeft, unavailableChampions } = this.state;
-        const leftSide = (isBlueOnLeft) ? sides.BLUE : sides.RED;
-        const rightSide = (isBlueOnLeft) ? sides.RED : sides.BLUE;
+        const {
+			champions,
+			teams,
+			history,
+			future,
+			leftSideColor,
+			rightSideColor,
+			unavailableChampions
+		} = this.state;
+		
         return (
             <div className="redraft">
-                <DraftHeader message={this.activeStep()} leftColor={leftSide} rightColor={rightSide} activeColor={this.activeColor()} />
-				<TeamPanel color={leftSide} side="left" team={teams[leftSide]} />
+                <DraftHeader message={this.activeStep()} leftColor={leftSideColor} rightColor={rightSideColor} activeColor={this.activeColor()} />
+				<TeamPanel color={leftSideColor} side="left" team={teams[leftSideColor]} />
 				<ChampionGrid
 					champions={champions}
 					unavailableChampions={unavailableChampions}
 					onChampionClick={this.handleChampionClick} />
 				<Controls controls={this.controls} history={history} future={future} />
-				<TeamPanel color={rightSide} side="right" team={teams[rightSide]} />
+				<TeamPanel color={rightSideColor} side="right" team={teams[rightSideColor]} />
             </div>
         );
     }
