@@ -15,7 +15,7 @@ class ChampionGrid extends Component {
         super(props);
         this.state = ({
             filteredChampions: [],
-			activeRoleFilter: "",
+			activeRoleIcon: null,
         });
 
         this.championSquaresList = this.championSquaresList.bind(this);
@@ -52,9 +52,9 @@ class ChampionGrid extends Component {
 
     filterByNameOrTag(event) {
         const filterRegex = new RegExp(event.target.value, 'i');
-        const filteredChampions = this.props.champions.filter(champ => {
-            return filterRegex.test(champ.id) || this.searchTags(champ.tags, filterRegex).length > 0;
-        });
+		const filteredChampions = this.props.champions.filter(champ => {
+	    	return filterRegex.test(champ.id) || this.searchTags(champ.tags, filterRegex).length > 0;
+	    });
 
         this.setState({
             filteredChampions: filteredChampions
@@ -68,13 +68,18 @@ class ChampionGrid extends Component {
     }
 
 	filterByRole(role, event) {
-		if (this.state.activeRoleFilter === role) {
-			event.target.blur();
+		let icon = event.target;
+		if (icon.classList.contains("active")) {
+			icon.classList.remove("active");
 			this.setState({
-				filteredChampions: this.props.champions
+				filteredChampions: this.props.champions,
+				activeRoleIcon: null
 			});
 			return;
 		}
+
+		if (this.state.activeRoleIcon) this.state.activeRoleIcon.classList.remove("active");
+		icon.classList.add("active");
 
 		const filterRegex = new RegExp(role, 'i');
 		const filteredChampions = this.props.champions.filter(champ => {
@@ -83,7 +88,7 @@ class ChampionGrid extends Component {
 
 		this.setState({
             filteredChampions: filteredChampions,
-			activeRoleFilter: role
+			activeRoleIcon: icon
         });
 	}
 
@@ -92,12 +97,12 @@ class ChampionGrid extends Component {
             <div className="champion-grid">
                 <div className="filter-container">
 					<div className="filter-roles">
-						<input className="filter-role-icon" type="image" src={AssassinIcon} name="assassin-role" onClick={this.filterByRole.bind(this, "Assassin")} alt="Assassin"/>
-						<input className="filter-role-icon" type="image" src={FighterIcon} name="fighter-role" onClick={this.filterByRole.bind(this, "Fighter")} alt="Fighter"/>
-						<input className="filter-role-icon" type="image" src={MageIcon} name="mage-role" onClick={this.filterByRole.bind(this, "Mage")} alt="Mage"/>
-						<input className="filter-role-icon" type="image" src={MarksmanIcon} name="marksman-role" onClick={this.filterByRole.bind(this, "Marksman")} alt="Marksman"/>
-						<input className="filter-role-icon" type="image" src={SupportIcon} name="support-role" onClick={this.filterByRole.bind(this, "Support")} alt="Support"/>
-						<input className="filter-role-icon" type="image" src={TankIcon} name="tank-role" onClick={this.filterByRole.bind(this, "Tank")} alt="Tank"/>
+						<img className="filter-role-icon" src={AssassinIcon} name="Assassin" onClick={this.filterByRole.bind(this, "Assassin")} alt="Assassin"/>
+						<img className="filter-role-icon" src={FighterIcon} name="Fighter" onClick={this.filterByRole.bind(this, "Fighter")} alt="Fighter"/>
+						<img className="filter-role-icon" src={MageIcon} name="Mage" onClick={this.filterByRole.bind(this, "Mage")} alt="Mage"/>
+						<img className="filter-role-icon" src={MarksmanIcon} name="Marksman" onClick={this.filterByRole.bind(this, "Marksman")} alt="Marksman"/>
+						<img className="filter-role-icon" src={SupportIcon} name="Support" onClick={this.filterByRole.bind(this, "Support")} alt="Support"/>
+						<img className="filter-role-icon" src={TankIcon} name="Tank" onClick={this.filterByRole.bind(this, "Tank")} alt="Tank"/>
 					</div>
                     <input className="filter-input" type="text" name="filter" onChange={this.filterByNameOrTag} placeholder="Search" />
                 </div>
