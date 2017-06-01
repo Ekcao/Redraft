@@ -15,9 +15,9 @@ class ChampionGrid extends Component {
         super(props);
         this.state = ({
             filteredChampions: [],
-			activeRoleIcon: null,
         });
 
+		this.activeRoleIcon = null;
         this.championSquaresList = this.championSquaresList.bind(this);
         this.filterChampions = this.filterChampions.bind(this);
 		this.handleRoleIconClick = this.handleRoleIconClick.bind(this);
@@ -53,8 +53,8 @@ class ChampionGrid extends Component {
         const filterRegex = new RegExp(event.target.value, 'i');
 
 		let filteredChampions;
-		if (this.state.activeRoleIcon) {
-			const roleFilterRegex = new RegExp(this.state.activeRoleIcon.alt, 'i');
+		if (this.activeRoleIcon) {
+			const roleFilterRegex = new RegExp(this.activeRoleIcon.alt, 'i');
 			filteredChampions = this.filterByNameAndRole(filterRegex, roleFilterRegex);
 		} else {
 			filteredChampions = this.filterByNameOrRole(filterRegex);
@@ -91,15 +91,16 @@ class ChampionGrid extends Component {
 		let icon = event.target;
 		if (icon.classList.contains("active")) {
 			icon.classList.remove("active");
+			this.activeRoleIcon = null;
 			this.setState({
 				filteredChampions: this.props.champions,
-				activeRoleIcon: null
 			});
 			return;
 		}
 
-		if (this.state.activeRoleIcon) this.state.activeRoleIcon.classList.remove("active");
+		if (this.activeRoleIcon) this.activeRoleIcon.classList.remove("active");
 		icon.classList.add("active");
+		this.activeRoleIcon = icon;
 
 		const filterRegex = new RegExp(role, 'i');
 		const filteredChampions = this.props.champions.filter(champ => {
@@ -107,8 +108,7 @@ class ChampionGrid extends Component {
 		});
 
 		this.setState({
-            filteredChampions: filteredChampions,
-			activeRoleIcon: icon
+            filteredChampions: filteredChampions
         });
 	}
 

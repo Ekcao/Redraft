@@ -6,7 +6,7 @@
 	overflow-y: auto;
 
 	display: grid;
-	grid-template-rows: 10% 1fr;
+	grid-template-rows: min-content 1fr;
 }
 
 .filter-container {
@@ -16,7 +16,7 @@
 
 	.filter-roles {
 		float: left;
-		height: 100%;
+		height: 32px;
 		max-width: 50%;
 	}
 

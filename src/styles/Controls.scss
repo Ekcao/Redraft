@@ -10,9 +10,8 @@
 .controls-button {
     color: $gold;
     background-color: $teal;
-    border: 1px solid $gold;
-    box-shadow: 0px 0px 1px 1px black inset;
-    text-transform: uppercase;
+    border: 2px solid $gold;
+    box-shadow: 0px 0px 2px 1px black inset;
     cursor: pointer;
 
 	&:focus {
@@ -26,9 +25,9 @@
 
 	&[disabled] {
 	    border-style: solid;
-	    border-color: gray;
-	    background-color: $teal;
-		box-shadow: none;
-	    color: gray;
+	    border-color: $gray;
+		box-shadow: 0px 0px 4px 1px black inset;
+	    background-color: $dark-gray;
+	    color: $gray;
 	}
 }

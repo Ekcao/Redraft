@@ -4,7 +4,7 @@
     color: $gold;
 
 	display: grid;
-	grid-template-columns: 10% repeat(3, 1fr);
+	grid-template-columns: auto repeat(3, 1fr);
 	grid-gap: .5vw;
 
 	h4 {
