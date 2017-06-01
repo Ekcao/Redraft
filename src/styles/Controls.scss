@@ -2,7 +2,7 @@
 
 .controls {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(7, 1fr);
 	grid-template-rows: repeat(4, 1fr);
 	grid-gap: 1vw;
 }
@@ -26,8 +26,9 @@
 	&[disabled] {
 	    border-style: solid;
 	    border-color: $gray;
-		box-shadow: 0px 0px 4px 1px black inset;
+		box-shadow: 0px 0px 3px 1px black inset;
 	    background-color: $dark-gray;
 	    color: $gray;
+		cursor: default;
 	}
 }
