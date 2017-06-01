@@ -19,9 +19,8 @@ class ChampionGrid extends Component {
         });
 
         this.championSquaresList = this.championSquaresList.bind(this);
-        this.filterByNameOrTag = this.filterByNameOrTag.bind(this);
-		this.filterByRole = this.filterByRole.bind(this);
-        this.searchTags = this.searchTags.bind(this);
+        this.filterChampions = this.filterChampions.bind(this);
+		this.handleRoleIconClick = this.handleRoleIconClick.bind(this);
     }
 
     componentWillReceiveProps(nextProps) {
@@ -50,24 +49,45 @@ class ChampionGrid extends Component {
         });
     }
 
-    filterByNameOrTag(event) {
+    filterChampions(event) {
         const filterRegex = new RegExp(event.target.value, 'i');
-		const filteredChampions = this.props.champions.filter(champ => {
-	    	return filterRegex.test(champ.id) || this.searchTags(champ.tags, filterRegex).length > 0;
-	    });
+
+		let filteredChampions;
+		if (this.state.activeRoleIcon) {
+			const roleFilterRegex = new RegExp(this.state.activeRoleIcon.alt, 'i');
+			filteredChampions = this.filterByNameAndRole(filterRegex, roleFilterRegex);
+		} else {
+			filteredChampions = this.filterByNameOrRole(filterRegex);
+		}
 
         this.setState({
             filteredChampions: filteredChampions
         });
     }
 
-    searchTags(tags, filterRegex) {
-        return tags.filter(tag => {
-            return filterRegex.test(tag);
+	filterByNameOrRole(filterRegex) {
+		return this.props.champions.filter(champ => {
+			return filterRegex.test(champ.id) || this.hasRole(champ, filterRegex);
+		});
+	}
+
+	filterByNameAndRole(nameFilterRegex, roleFilterRegex) {
+		return this.props.champions.filter(champ => {
+			return nameFilterRegex.test(champ.id) && this.hasRole(champ, roleFilterRegex);
+		});
+	}
+
+    filterRoles(roles, filterRegex) {
+        return roles.filter(role => {
+            return filterRegex.test(role);
         });
     }
 
-	filterByRole(role, event) {
+	hasRole(champ, roleFilterRegex) {
+		return this.filterRoles(champ.tags, roleFilterRegex).length > 0;
+	}
+
+	handleRoleIconClick(role, event) {
 		let icon = event.target;
 		if (icon.classList.contains("active")) {
 			icon.classList.remove("active");
@@ -83,7 +103,7 @@ class ChampionGrid extends Component {
 
 		const filterRegex = new RegExp(role, 'i');
 		const filteredChampions = this.props.champions.filter(champ => {
-			return this.searchTags(champ.tags, filterRegex).length > 0;
+			return this.hasRole(champ, filterRegex);
 		});
 
 		this.setState({
@@ -97,14 +117,14 @@ class ChampionGrid extends Component {
             <div className="champion-grid">
                 <div className="filter-container">
 					<div className="filter-roles">
-						<img className="filter-role-icon" src={AssassinIcon} name="Assassin" onClick={this.filterByRole.bind(this, "Assassin")} alt="Assassin"/>
-						<img className="filter-role-icon" src={FighterIcon} name="Fighter" onClick={this.filterByRole.bind(this, "Fighter")} alt="Fighter"/>
-						<img className="filter-role-icon" src={MageIcon} name="Mage" onClick={this.filterByRole.bind(this, "Mage")} alt="Mage"/>
-						<img className="filter-role-icon" src={MarksmanIcon} name="Marksman" onClick={this.filterByRole.bind(this, "Marksman")} alt="Marksman"/>
-						<img className="filter-role-icon" src={SupportIcon} name="Support" onClick={this.filterByRole.bind(this, "Support")} alt="Support"/>
-						<img className="filter-role-icon" src={TankIcon} name="Tank" onClick={this.filterByRole.bind(this, "Tank")} alt="Tank"/>
+						<img className="filter-role-icon" src={AssassinIcon} name="Assassin" onClick={this.handleRoleIconClick.bind(this, "Assassin")} alt="Assassin"/>
+						<img className="filter-role-icon" src={FighterIcon} name="Fighter" onClick={this.handleRoleIconClick.bind(this, "Fighter")} alt="Fighter"/>
+						<img className="filter-role-icon" src={MageIcon} name="Mage" onClick={this.handleRoleIconClick.bind(this, "Mage")} alt="Mage"/>
+						<img className="filter-role-icon" src={MarksmanIcon} name="Marksman" onClick={this.handleRoleIconClick.bind(this, "Marksman")} alt="Marksman"/>
+						<img className="filter-role-icon" src={SupportIcon} name="Support" onClick={this.handleRoleIconClick.bind(this, "Support")} alt="Support"/>
+						<img className="filter-role-icon" src={TankIcon} name="Tank" onClick={this.handleRoleIconClick.bind(this, "Tank")} alt="Tank"/>
 					</div>
-                    <input className="filter-input" type="text" name="filter" onChange={this.filterByNameOrTag} placeholder="Search" />
+                    <input className="filter-input" type="text" name="filter" onChange={this.filterChampions} placeholder="Search" />
                 </div>
                 <div className="champion-grid-items">
                     {this.championSquaresList()}
