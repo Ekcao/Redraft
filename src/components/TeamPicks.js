@@ -4,27 +4,34 @@ import PropTypes from 'prop-types';
 import ChampionCard from './ChampionCard';
 import '../styles/TeamPicks.css';
 
-const TeamPicks = ({ picks }) => {
-    const pickPortraits = picks.map((champ, index) => {
+const TeamPicks = ({ picks, pickTurns }) => {
+    const pickItems = picks.map((champ, index) => {
         if (champ) {
             return (
-                <ChampionCard key={champ.id} name={champ.name} imageURL={champ.portraitURL} />
+				<div className="pick-item">
+					<span>{pickTurns[index]}</span>
+					<ChampionCard key={champ.id} name={champ.name} imageURL={champ.portraitURL} />
+				</div>
             );
         } else {
             return (
-                <ChampionCard key={index} />
+				<div className="pick-item">
+					<span>{pickTurns[index]}</span>
+					<ChampionCard key={index} />
+				</div>
             );
         }
     });
     return (
         <div className="team-picks">
-            {pickPortraits}
+            {pickItems}
         </div>
     );
 }
 
 TeamPicks.propTypes = {
-    picks: PropTypes.array.isRequired
+    picks: PropTypes.array.isRequired,
+	pickTurns: PropTypes.array.isRequired
 }
 
 export default TeamPicks;

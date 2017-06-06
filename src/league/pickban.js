@@ -40,7 +40,19 @@ export const phaseOrder = [
 
 export function createNewTeams() {
     return {
-        [sides.BLUE]: { name: 'BLUE', picks: nullArrayOfSize(NUM_PICKS_TOTAL), bans: nullArrayOfSize(NUM_BANS_TOTAL) },
-        [sides.RED]: { name: 'RED', picks: nullArrayOfSize(NUM_PICKS_TOTAL), bans: nullArrayOfSize(NUM_BANS_TOTAL) }
+        [sides.BLUE]: {
+			name: 'BLUE',
+			pickTurns: [ 1, 4, 5, 8, 9 ],
+			banTurns: [ 1, 3, 5, 8, 10 ],
+			picks: nullArrayOfSize(NUM_PICKS_TOTAL),
+			bans: nullArrayOfSize(NUM_BANS_TOTAL)
+		},
+        [sides.RED]: {
+			name: 'RED',
+			pickTurns: [ 2, 3, 6, 7, 10 ],
+			banTurns: [ 2, 4, 6, 7, 9 ],
+			picks: nullArrayOfSize(NUM_PICKS_TOTAL),
+			bans: nullArrayOfSize(NUM_BANS_TOTAL)
+		}
     }
 }

@@ -6,4 +6,19 @@
 	display: grid;
 	grid-template-rows: repeat(5, 1fr);
 	grid-gap: 1vh;
+
+	.pick-item {
+		span {
+			grid-area: pickTurn;
+		}
+
+		.champion-card {
+			grid-area: pickChamp;
+		}
+
+		color: $gold;
+		display: grid;
+		grid-template-columns: 32px 1fr;
+		grid-template-areas: "pickTurn pickChamp";
+	}
 }

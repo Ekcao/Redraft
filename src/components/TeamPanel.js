@@ -9,8 +9,8 @@ import '../styles/TeamPanel.css';
 const TeamPanel = ({ color, side, team }) => {
     return (
         <div className={`team-panel ${color} ${side}`}>
-            <TeamPicks picks={team.picks} />
-            <TeamBans bans={team.bans} />
+            <TeamPicks picks={team.picks} pickTurns={team.pickTurns} />
+            <TeamBans bans={team.bans} banTurns={team.banTurns} />
         </div>
     );
 }

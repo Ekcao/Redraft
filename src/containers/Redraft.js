@@ -48,10 +48,11 @@ class Redraft extends Component {
     }
 
     handleChampionClick(champ) {
-        if (this.state.currentStep >= phaseOrder.length) return;
+		const { currentStep } = this.state;
+        if (currentStep >= phaseOrder.length) return;
         if (this.state.unavailableChampions.includes(champ.id)) return;
 
-        const step = phaseOrder[this.state.currentStep];
+        const step = phaseOrder[currentStep];
         const teams = Object.assign({}, JSON.parse(JSON.stringify(this.state.teams)));
 
 		teams[step.side][step.phase + 's'] = replaceFirstNullWith(teams[step.side][step.phase + 's'], champ);
@@ -60,7 +61,7 @@ class Redraft extends Component {
             history: this.state.history.concat(this.state),
             teams: teams,
             unavailableChampions: this.state.unavailableChampions.concat(champ.id),
-            currentStep: this.state.currentStep + 1
+            currentStep: currentStep + 1
         });
     }
 
@@ -144,7 +145,7 @@ class Redraft extends Component {
 			rightSideColor,
 			unavailableChampions
 		} = this.state;
-		
+
         return (
             <div className="redraft">
                 <DraftHeader message={this.activeStep()} leftColor={leftSideColor} rightColor={rightSideColor} activeColor={this.activeColor()} />

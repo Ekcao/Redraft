@@ -13,12 +13,20 @@
 	.team-panel {
 		&.left {
 			grid-area: leftSide;
-			margin-left: 1vw;
 		}
 
 		&.right {
 			grid-area: rightSide;
-			margin-right: 1vw;
+
+			.team-picks > .pick-item {
+				grid-template-columns: 1fr 32px;
+				grid-template-areas: "pickChamp pickTurn";
+			}
+
+			.team-bans {
+				margin-left: 0;
+				margin-right: 32px;
+			}
 		}
 	}
 
