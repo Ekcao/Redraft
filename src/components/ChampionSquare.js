@@ -8,7 +8,7 @@ const ChampionSquare = ({ name, imageURL, onClick }) => {
     const clickable = (onClick) ? 'clickable' : 'unclickable';
     let content;
     if (imageURL) {
-        content = <img src={imageURL} className="champion-img" onClick={onClick} alt={name} />;
+        content = <img src={imageURL} className="champion-img" onClick={onClick} title={name} alt={name} />;
     } else {
         content = <img src={EmptySquare} className="champion-img empty" alt="Empty"/>;
     }

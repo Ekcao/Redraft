@@ -11,9 +11,10 @@
 		span {
 			grid-area: pickTurn;
 			font-weight: bold;
+			color: $light-gold;
 		}
 
-		.champion-card {
+		.champion-pick {
 			grid-area: pickChamp;
 			height: 100%;
 		}

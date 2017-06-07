@@ -2,20 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import ChampionSquare from './ChampionSquare';
-import '../styles/ChampionCard.css';
+import '../styles/ChampionPick.css';
 
-const ChampionCard = ({ name, imageURL }) => {
+const ChampionPick = ({ name, imageURL }) => {
     return (
-        <div className="champion-card">
+        <div className="champion-pick">
 			<ChampionSquare name={name} imageURL={imageURL} />
             <h3>{name}</h3>
         </div>
     );
 };
 
-ChampionCard.propTypes = {
+ChampionPick.propTypes = {
     name: PropTypes.string,
     imageURL: PropTypes.string
 }
 
-export default ChampionCard;
+export default ChampionPick;

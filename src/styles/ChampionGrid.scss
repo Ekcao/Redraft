@@ -13,20 +13,20 @@
 	padding: 1vh 1vw .5vh 1vw;
 
 	.filter-roles {
-		float: left;
 		height: 32px;
-		max-width: 50%;
+
+		grid-area: filterRoles;
+		justify-self: start;
 	}
 
 	.filter-role-icon {
 		cursor: pointer;
-		float: left;
 		height: 100%;
 		width: auto;
 		padding: .25vh .25vw;
 
 		&.active {
-			box-shadow: 0 5px 0 -2px $gold;
+			box-shadow: 0 5px 0 -3px $gold;
 		}
 
 		&:focus {
@@ -35,9 +35,25 @@
 	}
 
 	.filter-input {
-		float: right;
 		max-width: 50%;
+		border: none;
+		background-color: $dark-gray;
+		color: $light-gold;
+		outline: none;
+
+		grid-area: filterInput;
+		justify-self: end;
+
+		&::placeholder {
+			color: $light-gold;
+		}
 	}
+
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-areas: "filterRoles none filterInput";
+	align-items: center;
+	justify-items: center;
 }
 
 .champion-grid-items {

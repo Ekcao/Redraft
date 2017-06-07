@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import ChampionCard from './ChampionCard';
+import ChampionPick from './ChampionPick';
 import '../styles/TeamPicks.css';
 
 const TeamPicks = ({ picks, pickTurns }) => {
@@ -10,14 +10,14 @@ const TeamPicks = ({ picks, pickTurns }) => {
             return (
 				<div className="pick-item" key={index}>
 					<span>{pickTurns[index]}</span>
-					<ChampionCard key={champ.id} name={champ.name} imageURL={champ.portraitURL} />
+					<ChampionPick key={champ.id} name={champ.name} imageURL={champ.portraitURL} />
 				</div>
             );
         } else {
             return (
 				<div className="pick-item" key={index}>
 					<span>{pickTurns[index]}</span>
-					<ChampionCard />
+					<ChampionPick />
 				</div>
             );
         }

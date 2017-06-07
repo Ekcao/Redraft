@@ -11,7 +11,7 @@
 .champion-img {
     width: 100%;
     height: 100%;
-    clip-path: inset(3% 3% 3% 3%);
+    clip-path: inset(2% 2% 2% 2%);
     display: block;
 
 	&.empty {
@@ -19,7 +19,7 @@
 	}
 
 	&:hover {
-	    clip-path: inset(4% 4% 4% 4%);
+	    clip-path: inset(3% 3% 3% 3%);
 	}
 }
 
