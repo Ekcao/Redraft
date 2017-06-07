@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import ChampionSquare from './ChampionSquare';
+import Header from './Header';
 import AssassinIcon from '../images/role_icon_assassin.png';
 import FighterIcon from '../images/role_icon_fighter.png';
 import MageIcon from '../images/role_icon_mage.png';
@@ -115,7 +116,7 @@ class ChampionGrid extends Component {
     render() {
         return (
             <div className="champion-grid">
-                <div className="filter-container">
+                <Header className="filter-container">
 					<div className="filter-roles">
 						<img className="filter-role-icon" src={AssassinIcon} name="Assassin" onClick={this.handleRoleIconClick.bind(this, "Assassin")} alt="Assassin"/>
 						<img className="filter-role-icon" src={FighterIcon} name="Fighter" onClick={this.handleRoleIconClick.bind(this, "Fighter")} alt="Fighter"/>
@@ -125,7 +126,7 @@ class ChampionGrid extends Component {
 						<img className="filter-role-icon" src={TankIcon} name="Tank" onClick={this.handleRoleIconClick.bind(this, "Tank")} alt="Tank"/>
 					</div>
                     <input className="filter-input" type="text" name="filter" onChange={this.filterChampions} placeholder="Search" />
-                </div>
+                </Header>
                 <div className="champion-grid-items">
                     {this.championSquaresList()}
                 </div>

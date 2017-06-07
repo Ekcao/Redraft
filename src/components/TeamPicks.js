@@ -8,16 +8,16 @@ const TeamPicks = ({ picks, pickTurns }) => {
     const pickItems = picks.map((champ, index) => {
         if (champ) {
             return (
-				<div className="pick-item">
+				<div className="pick-item" key={index}>
 					<span>{pickTurns[index]}</span>
 					<ChampionCard key={champ.id} name={champ.name} imageURL={champ.portraitURL} />
 				</div>
             );
         } else {
             return (
-				<div className="pick-item">
+				<div className="pick-item" key={index}>
 					<span>{pickTurns[index]}</span>
-					<ChampionCard key={index} />
+					<ChampionCard />
 				</div>
             );
         }

@@ -8,11 +8,29 @@
 		margin-left: 32px;
 	}
 
+	&.right {
+		.team-picks > .pick-item {
+			direction: rtl;
+
+			.champion-card {
+				direction: rtl;
+			}
+		}
+
+		.team-bans {
+			margin-left: 0;
+			margin-right: 32px;
+
+			.ban-phase-info {
+				direction: rtl;
+			}
+		}
+	}
+
 	display: grid;
 	grid-template-rows: 3fr 1fr;
 	grid-gap: 1vh;
 	grid-template-areas:
 		"teamPicks"
 		"teamBans";
-
 }

@@ -10,15 +10,18 @@
 	.pick-item {
 		span {
 			grid-area: pickTurn;
+			font-weight: bold;
 		}
 
 		.champion-card {
 			grid-area: pickChamp;
+			height: 100%;
 		}
 
 		color: $gold;
 		display: grid;
 		grid-template-columns: 32px 1fr;
 		grid-template-areas: "pickTurn pickChamp";
+		align-items: center;
 	}
 }

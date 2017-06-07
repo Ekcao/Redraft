@@ -1,19 +1,18 @@
 @import 'colors';
 
 .team-bans {
-	padding: 1vh 1vw;
+	padding-bottom: 1vh;
     border: 1px ridge $gold;
     background-color: $teal;
     color: white;
 
 	display: grid;
-	grid-template-rows: 10% 1fr 1fr;
+	grid-template-rows: auto 1fr 1fr;
 	grid-gap: 1vh;
 	align-items: center;
 
-	h4 {
-	    color: $gold;
-		margin: 0;
-		padding: 0;
+	.ban-phase-info {
+		margin-left: 1vw;
+		margin-right: 1vw;
 	}
 }

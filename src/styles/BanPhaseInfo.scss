@@ -7,9 +7,9 @@
 	grid-template-columns: auto repeat(3, 1fr);
 	grid-gap: .5vw;
 
-	h4 {
+	span {
 		writing-mode: vertical-lr;
-		margin: 0;
-		padding: 0;
+		font-weight: bold;
+		font-size: small;
 	}
 }

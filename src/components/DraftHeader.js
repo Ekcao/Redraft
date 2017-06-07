@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Header from './Header';
 import '../styles/DraftHeader.css';
 
 const DraftHeader = ({ message, leftColor, rightColor, activeColor }) => {
     return (
-        <div className={`draft-header ${leftColor}-${rightColor} active-${activeColor}`}>
-            <h1 className="header-message">{message}</h1>
-        </div>
+        <Header className={`draft-header ${leftColor}-${rightColor} active-${activeColor}`}>
+            {message}
+        </Header>
     );
 }
 

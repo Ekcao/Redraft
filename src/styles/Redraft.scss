@@ -12,21 +12,11 @@
 
 	.team-panel {
 		&.left {
-			grid-area: leftSide;
+			grid-area: leftTeam;
 		}
 
 		&.right {
-			grid-area: rightSide;
-
-			.team-picks > .pick-item {
-				grid-template-columns: 1fr 32px;
-				grid-template-areas: "pickChamp pickTurn";
-			}
-
-			.team-bans {
-				margin-left: 0;
-				margin-right: 32px;
-			}
+			grid-area: rightTeam;
 		}
 	}
 
@@ -46,6 +36,6 @@
 	grid-column-gap: 1vw;
 	grid-template-areas:
 		"header header header"
-		"leftSide championGrid rightSide"
-		"leftSide controls rightSide";
+		"leftTeam championGrid rightTeam"
+		"leftTeam controls rightTeam";
 }
