@@ -122,7 +122,7 @@ class Redraft extends Component {
         if (currentStep < phaseOrder.length) {
             return `${phaseOrder[currentStep].side} SIDE ${phaseOrder[currentStep].phase}`.toUpperCase();
         } else {
-            return '';
+            return 'READY';
         }
     }
 

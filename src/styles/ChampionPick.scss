@@ -1,6 +1,7 @@
 @import 'colors';
 
 .champion-pick {
+	padding: .5vh .5vw;
     background-color: $teal;
     border: 1px solid $gold;
 
@@ -13,6 +14,6 @@
 	}
 
 	.champion-square {
-		margin: .5vh .5vw;
+		// margin: .5vh 0 .5vh .5vh;
 	}
 }

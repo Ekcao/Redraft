@@ -125,7 +125,7 @@ class ChampionGrid extends Component {
 						<img className="filter-role-icon" src={SupportIcon} name="Support" onClick={this.handleRoleIconClick.bind(this, "Support")} alt="Support"/>
 						<img className="filter-role-icon" src={TankIcon} name="Tank" onClick={this.handleRoleIconClick.bind(this, "Tank")} alt="Tank"/>
 					</div>
-                    <input className="filter-input" type="text" name="filter" onChange={this.filterChampions} placeholder="FIND A CHAMPION" />
+                    <input className="filter-input" type="search" name="filter" onChange={this.filterChampions} placeholder="FIND A CHAMPION" />
                 </Header>
                 <div className="champion-grid-items">
                     {this.championSquaresList()}
